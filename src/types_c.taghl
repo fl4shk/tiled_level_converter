@@ -1,0 +1,24 @@
+syn keyword CTagsMember tileset_vec output_basename hflip y tile_size_2d the_level_ptr persistent_data_index real_size_2d gid_st_map max_num_blocks shift tile_ids x tilecount type in_level_pos name
+syn keyword CTagsMember initial_block_grid_y_coord the_array file_was_opened id output_dirname level_entrance_vec object_vec gid vflip max_size_2d size sprite_ipg_vec spawn_state map_header uncompressed_block_data_vec block_grid_pos compressed_block_data_vec objectgroup_vec initial_block_grid_x_coord nextobjectid gid_raw gid_tileset_ptr_map layer_vec the_sprite_type size_2d real_block_grid_pos facing_right frac_mask object_ptr_vec data doc level_str persistent_block_data_array_size data_str firstgid
+syn keyword CTagsGlobalVariable st_name_vec
+syn keyword CTagsConstant st_unknown_str
+syn keyword CTagsEnumeratorName level_entrance_type block_type sprite_type sprite_spawn_state
+syn keyword CTagsEnumerationValue bt_dud bt_wood st_muffin bt_log bt_qmark sss_not_active st_chocolate_muffin sss_active st_count st_default bt_exclam bt_air st_fire_muffin st_ice_muffin bt_count sss_dead le_count le_start_of_level st_player st_waffle
+syn keyword CTagsFunction generate_the_level init build_gid_maps_and_correct_objects get_bt_name get_bt_name_debug width
+syn keyword CTagsFunction output_prefix lastgid generate_level_cpp_file debug_print_gid_st_map get_the_array write_uncompressed_block_data_to_file data_at get_uncompressed_block_data_file_name get_frac_bits get_st_name_debug debug_print_2 get_compressed_block_data_file_name bt_has_persistent_data round_to_int read_compressed_block_data_from_file height get_size build_object_ptr_vec get_block_type get_st_name generate_level_header debug_print_gid_tileset_ptr_map trunc_to_int get_size_2d debug_print main
+syn keyword CTagsType u64 uint vec2_s32 vec2_u16 u8 vec2_f24p8 vec2_u64 vec2_s16 vec2_s64 u32 vec2_u32 s32 s8 u16 s16 s64
+syn keyword CTagsDefinedName fixed24p8_class_hpp sprite_level_data_stuff_hpp tiled_layer_class_hpp misc_types_hpp block_stuff_hpp tiled_level_class_hpp level_entrance_class_hpp misc_includes_hpp tiled_object_class_stuff_hpp array_2d_helper_class_hpp tiled_tileset_class_hpp tiled_map_header_class_hpp level_class_hpp utility_funcs_hpp sprite_type_stuff_hpp vec2_class_hpp
+syn keyword CTagsClass level tiled_level vec2 tiled_objectgroup sprite_init_param_group array_2d_helper level_entrance fixed24p8 tiled_layer tiled_map_header block tiled_object tiled_tileset
+syn keyword CTagsNamespace block_stuff
+
+" Matches for file block_stuff.cpp:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "block_stuff.cpp") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsMember bt_name_and_has_persistent_data_vec bt_unknown_str
+	syn keyword CTagsNamespace block_stuff
+	
+endif
+" Matches for file level_class.cpp:
+if (has_key(b:TagHighlightPrivate, "NormalisedPath") && b:TagHighlightPrivate["NormalisedPath"] == "level_class.cpp") || TagHighlight#Option#GetOption("IgnoreFileScope")
+	syn keyword CTagsMember max_num_blocks max_size_2d
+	
+endif
