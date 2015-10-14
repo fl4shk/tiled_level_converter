@@ -1,5 +1,33 @@
 #include "tiled_object_class_stuff.hpp"
 
+// Build the vector of tiled_object_property's
+void tiled_object::build_property_vec( xml_node<>* properties_node )
+{
+	for ( auto inner_node = properties_node->first_node();
+		inner_node;
+		inner_node = inner_node->next_sibling() )
+	{
+		tiled_object_property to_push;
+		
+		for ( auto attr=inner_node->first_attribute();
+			attr;
+			attr=attr->next_attribute() )
+		{
+			if ( attr->name() == string("name") )
+			{
+				to_push.name = attr->value();
+			}
+			else if ( attr->name() == string("value") )
+			{
+				to_push.value = attr->value();
+			}
+		}
+		
+		property_vec.push_back(to_push);
+	}
+	
+}
+
 
 tiled_objectgroup::tiled_objectgroup( xml_node<>* node )
 {
@@ -79,6 +107,15 @@ tiled_objectgroup::tiled_objectgroup( xml_node<>* node )
 			
 		}
 		
+		auto first_node = object_node->first_node();
+		
+		if (first_node)
+		{
+			if ( first_node->name() == string("properties") )
+			{
+				to_push.build_property_vec(first_node);
+			}
+		}
 		
 		object_vec.push_back(to_push);
 	}

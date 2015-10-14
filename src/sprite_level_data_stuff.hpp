@@ -29,6 +29,13 @@ public:		// variables
 	// Here is a s
 	bool facing_right;
 	
+	// Here are extra parameters that are used in different ways depending
+	// on the type of sprite.
+	u32 extra_param_0;
+	u32 extra_param_1;
+	u32 extra_param_2;
+	u32 extra_param_3;
+	
 	// I figure that it's best to merge the despawned/spawned/dead
 	// information into the sprite_init_param_group class.
 	sprite_spawn_state spawn_state;

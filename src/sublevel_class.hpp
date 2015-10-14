@@ -1,31 +1,31 @@
-#ifndef level_class_hpp
-#define level_class_hpp
+#ifndef sublevel_class_hpp
+#define sublevel_class_hpp
 
 #include "array_2d_helper_class.hpp"
 #include "sprite_level_data_stuff.hpp"
 #include "block_stuff.hpp"
 
-#include "level_entrance_class.hpp"
+#include "sublevel_entrance_class.hpp"
 
 
 #include <vector>
 using namespace std;
 
 
-//// Here is a reference class for levels as they appear in my GBA code.
+//// Here is a reference class for sublevels as they appear in my GBA code.
 //template< u32 compressed_block_data_size, u32 xsize, u32 ysize, 
-//	u32 sprite_ipg_arr_size, u32 level_entrance_arr_size >
-//class level
+//	u32 sprite_ipg_arr_size, u32 sublevel_entrance_arr_size >
+//class sublevel
 //{
 //public:		// variables
 //	const u32 compressed_block_data[compressed_block_data_size];
 //	const sprite_init_param_group sprite_ipg_arr[sprite_ipg_arr_size];
-//	const level_entrance level_entrance_arr[level_entrance_arr_size];
+//	const sublevel_entrance sublevel_entrance_arr[sublevel_entrance_arr_size];
 //	
 //} __attribute__((aligned(4)));
 
 
-class level
+class sublevel
 {
 public:		// constants
 	static const vec2_u32 max_size_2d;
@@ -56,13 +56,13 @@ public:		// variables
 	// sprite_ipg_vec can also have a variable size.
 	vector<sprite_init_param_group> sprite_ipg_vec;
 	
-	// Additionally, level_entrance_vec can have a variable size.
-	vector<level_entrance> level_entrance_vec;
+	// Additionally, sublevel_entrance_vec can have a variable size.
+	vector<sublevel_entrance> sublevel_entrance_vec;
 	
 public:		// functions
-	level();
+	sublevel();
 	
-	level( const vec2_u32& s_size_2d );
+	sublevel( const vec2_u32& s_size_2d );
 	
 	void init( const vec2_u32& s_size_2d );
 	
@@ -71,4 +71,4 @@ public:		// functions
 
 
 
-#endif		// level_class_hpp
+#endif		// sublevel_class_hpp

@@ -28,6 +28,15 @@ enum sprite_type
 	st_ice_muffin,
 	st_chocolate_muffin,
 	
+	// Block-like Sprites
+	
+	// st_warp_block_# is used for warping around different parts of a
+	// SINGLE sublevel.  These get connected to sublevel_entrance's during
+	// the sublevel conversion process.
+	st_warp_block_0, st_warp_block_1, st_warp_block_2, st_warp_block_3,
+	st_warp_block_4, st_warp_block_5, st_warp_block_6, st_warp_block_7,
+	st_warp_block_8, st_warp_block_9, st_warp_block_10, st_warp_block_11,
+	st_warp_block_12, st_warp_block_13, st_warp_block_14, st_warp_block_15,
 	
 	// st_count is the amount of sprite types.  It is automatically updated
 	// by the compiler.

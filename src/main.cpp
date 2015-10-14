@@ -2,7 +2,7 @@
 #include "utility_funcs.hpp"
 
 
-#include "tiled_level_class.hpp"
+#include "tiled_sublevel_class.hpp"
 
 
 
@@ -18,12 +18,12 @@ int main( int argc, char** argv )
 	
 	string input_file_name(argv[1]), output_prefix(argv[2]);
 	
-	level the_level;
+	sublevel the_sublevel;
 	
-	tiled_level the_tiled_level( input_file_name, output_prefix, 
-		the_level );
+	tiled_sublevel the_tiled_sublevel( input_file_name, output_prefix, 
+		the_sublevel );
 	
-	if ( !the_tiled_level.file_was_opened )
+	if ( !the_tiled_sublevel.file_was_opened )
 	{
 		cout << "The TMX file couldn't be opened!  Exiting...\n";
 		
@@ -31,7 +31,7 @@ int main( int argc, char** argv )
 	}
 	
 	
-	the_tiled_level.generate_the_level();
+	the_tiled_sublevel.generate_the_sublevel();
 	
 	
 	return 0;

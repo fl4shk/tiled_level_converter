@@ -4,6 +4,11 @@
 
 #include "misc_includes.hpp"
 
+class tiled_object_property
+{
+public:		// variables
+	string name, value;
+};
 
 
 // object's are intended to be treated as the Tiled analog of my own
@@ -33,21 +38,50 @@ public:		// variables
 	
 	sprite_type the_sprite_type;
 	
+	vector<tiled_object_property> property_vec;
+	
+	
 public:		// functions
 	
 	inline void debug_print()
 	{
-		cout << id << " " << gid_raw << ";  " 
+		cout << get_st_name_debug(the_sprite_type) << ";  "
+			<< id << " " << gid_raw << ";  " 
 			<< gid << " " << hflip << " " << vflip << ";  "
 			<< block_grid_pos.x << " " << block_grid_pos.y << " "
 			<< size_2d.x << " " << size_2d.y << ";  "
 			<< real_block_grid_pos.x << " " << real_block_grid_pos.y << " "
-			<< real_size_2d.x << " " << real_size_2d.y << ";  "
-			<< get_st_name_debug(the_sprite_type) << endl;
-		
+			<< real_size_2d.x << " " << real_size_2d.y;
+		for ( auto property=property_vec.begin();
+			property!=property_vec.end();
+			++property )
+		{
+			cout << ";  " << property->name << " " << property->value;
+		}
+		cout << endl;
 		
 	}
+	inline void debug_print_short()
+	{
+		cout << get_st_name_debug(the_sprite_type) << ";  "
+			<< real_block_grid_pos.x << " " << real_block_grid_pos.y 
+			<< endl;
+	}
 	
+	inline void reject()
+	{
+		cout << "The following Tiled object has been rejected:  ";
+		debug_print_short();
+	}
+	inline void reject_and_exit()
+	{
+		cout << "The following Tiled object has been rejected:  ";
+		debug_print_short();
+		cout << "Exiting....\n";
+		exit(1);
+	}
+	
+	void build_property_vec( xml_node<>* properties_node );
 };
 
 

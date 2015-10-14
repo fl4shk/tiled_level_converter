@@ -39,39 +39,73 @@ block_stuff_hpp	block_stuff.hpp	2;"	kind:d
 block_type	block_stuff.hpp	/^enum block_type$/;"	kind:g
 bt_air	block_stuff.hpp	/^	bt_air,$/;"	kind:e	enum:block_type
 bt_count	block_stuff.hpp	/^	bt_count,$/;"	kind:e	enum:block_type
+bt_dirt_bottom_left	block_stuff.hpp	/^	bt_dirt_bottom_left,$/;"	kind:e	enum:block_type
+bt_dirt_bottom_middle	block_stuff.hpp	/^	bt_dirt_bottom_middle,$/;"	kind:e	enum:block_type
+bt_dirt_bottom_right	block_stuff.hpp	/^	bt_dirt_bottom_right,$/;"	kind:e	enum:block_type
+bt_dirt_middle_left	block_stuff.hpp	/^	bt_dirt_middle_left,$/;"	kind:e	enum:block_type
+bt_dirt_middle_middle	block_stuff.hpp	/^	bt_dirt_middle_middle,$/;"	kind:e	enum:block_type
+bt_dirt_middle_right	block_stuff.hpp	/^	bt_dirt_middle_right,$/;"	kind:e	enum:block_type
 bt_dud	block_stuff.hpp	/^	bt_dud,$/;"	kind:e	enum:block_type
 bt_exclam	block_stuff.hpp	/^	bt_exclam,$/;"	kind:e	enum:block_type
+bt_grass_in_slope_left	block_stuff.hpp	/^	bt_grass_in_slope_left,$/;"	kind:e	enum:block_type
+bt_grass_in_slope_right	block_stuff.hpp	/^	bt_grass_in_slope_right,$/;"	kind:e	enum:block_type
+bt_grass_single	block_stuff.hpp	/^	bt_grass_single,$/;"	kind:e	enum:block_type
+bt_grass_slope_135_degrees	block_stuff.hpp	/^	bt_grass_slope_135_degrees,$/;"	kind:e	enum:block_type
+bt_grass_slope_45_degrees	block_stuff.hpp	/^	bt_grass_slope_45_degrees,$/;"	kind:e	enum:block_type
+bt_grass_top_left	block_stuff.hpp	/^	bt_grass_top_left,$/;"	kind:e	enum:block_type
+bt_grass_top_middle	block_stuff.hpp	/^	bt_grass_top_middle,$/;"	kind:e	enum:block_type
+bt_grass_top_right	block_stuff.hpp	/^	bt_grass_top_right,$/;"	kind:e	enum:block_type
 bt_has_persistent_data	block_stuff.hpp	/^	inline bool bt_has_persistent_data( block_type the_block_type )$/;"	kind:f	namespace:block_stuff	signature:( block_type the_block_type )
 bt_log	block_stuff.hpp	/^	bt_log,$/;"	kind:e	enum:block_type
 bt_name_and_has_persistent_data_vec	block_stuff.cpp	/^	vector< pair< string, bool > > bt_name_and_has_persistent_data_vec$/;"	kind:m	namespace:block_stuff	file:
 bt_qmark	block_stuff.hpp	/^	bt_qmark,$/;"	kind:e	enum:block_type
+bt_qmark_with_st_chocolate_muffin	block_stuff.hpp	/^	bt_qmark_with_st_chocolate_muffin,$/;"	kind:e	enum:block_type
+bt_qmark_with_st_fire_muffin	block_stuff.hpp	/^	bt_qmark_with_st_fire_muffin,$/;"	kind:e	enum:block_type
+bt_qmark_with_st_ice_muffin	block_stuff.hpp	/^	bt_qmark_with_st_ice_muffin,$/;"	kind:e	enum:block_type
+bt_qmark_with_st_muffin	block_stuff.hpp	/^	bt_qmark_with_st_muffin,$/;"	kind:e	enum:block_type
+bt_qmark_with_st_waffle	block_stuff.hpp	/^	bt_qmark_with_st_waffle,$/;"	kind:e	enum:block_type
 bt_unknown_str	block_stuff.cpp	/^	const string bt_unknown_str = string("bt_unknown");$/;"	kind:m	namespace:block_stuff	file:
 bt_wood	block_stuff.hpp	/^	bt_wood,$/;"	kind:e	enum:block_type
-build_gid_maps_and_correct_objects	tiled_level_class.cpp	/^void tiled_level::build_gid_maps_and_correct_objects()$/;"	kind:f	class:tiled_level	signature:()
-build_gid_maps_and_correct_objects	tiled_level_class.hpp	/^	void build_gid_maps_and_correct_objects();$/;"	kind:p	class:tiled_level	access:protected	signature:()
-build_object_ptr_vec	tiled_level_class.cpp	/^void tiled_level::build_object_ptr_vec()$/;"	kind:f	class:tiled_level	signature:()
-build_object_ptr_vec	tiled_level_class.hpp	/^	void build_object_ptr_vec();$/;"	kind:p	class:tiled_level	access:protected	signature:()
-compressed_block_data_vec	level_class.hpp	/^	vector<u32> compressed_block_data_vec;$/;"	kind:m	class:level	access:public
+bt_wood_with_bt_dud	block_stuff.hpp	/^	bt_wood_with_bt_dud,$/;"	kind:e	enum:block_type
+bt_wood_with_st_chocolate_muffin	block_stuff.hpp	/^	bt_wood_with_st_chocolate_muffin,$/;"	kind:e	enum:block_type
+bt_wood_with_st_fire_muffin	block_stuff.hpp	/^	bt_wood_with_st_fire_muffin,$/;"	kind:e	enum:block_type
+bt_wood_with_st_ice_muffin	block_stuff.hpp	/^	bt_wood_with_st_ice_muffin,$/;"	kind:e	enum:block_type
+bt_wood_with_st_muffin	block_stuff.hpp	/^	bt_wood_with_st_muffin,$/;"	kind:e	enum:block_type
+bt_wood_with_st_waffle	block_stuff.hpp	/^	bt_wood_with_st_waffle,$/;"	kind:e	enum:block_type
+build_gid_maps_and_correct_objects	tiled_sublevel_class.cpp	/^void tiled_sublevel::build_gid_maps_and_correct_objects()$/;"	kind:f	class:tiled_sublevel	signature:()
+build_gid_maps_and_correct_objects	tiled_sublevel_class.hpp	/^	void build_gid_maps_and_correct_objects();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
+build_object_ptr_vec	tiled_sublevel_class.cpp	/^void tiled_sublevel::build_object_ptr_vec()$/;"	kind:f	class:tiled_sublevel	signature:()
+build_object_ptr_vec	tiled_sublevel_class.hpp	/^	void build_object_ptr_vec();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
+build_property_vec	tiled_object_class_stuff.cpp	/^void tiled_object::build_property_vec( xml_node<>* properties_node )$/;"	kind:f	class:tiled_object	signature:( xml_node<* properties_node )
+build_property_vec	tiled_object_class_stuff.hpp	/^	void build_property_vec( xml_node<>* properties_node );$/;"	kind:p	class:tiled_object	access:public	signature:( xml_node<* properties_node )
+compressed_block_data_vec	sublevel_class.hpp	/^	vector<u32> compressed_block_data_vec;$/;"	kind:m	class:sublevel	access:public
+connect_warp_block_to_sublevel_entrance	tiled_sublevel_class.cpp	/^void tiled_sublevel::connect_warp_block_to_sublevel_entrance$/;"	kind:f	class:tiled_sublevel	signature:( tiled_object* obj_ptr, sprite_init_param_group& to_push )
+connect_warp_block_to_sublevel_entrance	tiled_sublevel_class.hpp	/^	void connect_warp_block_to_sublevel_entrance( tiled_object* obj_ptr,$/;"	kind:p	class:tiled_sublevel	access:protected	signature:( tiled_object* obj_ptr, sprite_init_param_group& to_push )
 data	fixed24p8_class.hpp	/^	s32 data;$/;"	kind:m	class:fixed24p8	access:public
 data_at	array_2d_helper_class.hpp	/^	type& data_at( const vec2_u32& offset_2d )$/;"	kind:f	class:array_2d_helper	access:public	signature:( const vec2_u32& offset_2d )
 data_at	array_2d_helper_class.hpp	/^	type& data_at( u32 x, u32 y )$/;"	kind:f	class:array_2d_helper	access:public	signature:( u32 x, u32 y )
 data_str	tiled_layer_class.hpp	/^	string data_str;$/;"	kind:m	class:tiled_layer	access:public
 debug_print	tiled_layer_class.hpp	/^	inline void debug_print()$/;"	kind:f	class:tiled_layer	access:public	signature:()
-debug_print	tiled_level_class.cpp	/^void tiled_level::debug_print()$/;"	kind:f	class:tiled_level	signature:()
-debug_print	tiled_level_class.hpp	/^	void debug_print();$/;"	kind:p	class:tiled_level	access:public	signature:()
 debug_print	tiled_map_header_class.hpp	/^	inline void debug_print()$/;"	kind:f	class:tiled_map_header	access:public	signature:()
 debug_print	tiled_object_class_stuff.hpp	/^	inline void debug_print()$/;"	kind:f	class:tiled_object	access:public	signature:()
 debug_print	tiled_object_class_stuff.hpp	/^	inline void debug_print()$/;"	kind:f	class:tiled_objectgroup	access:public	signature:()
+debug_print	tiled_sublevel_class.cpp	/^void tiled_sublevel::debug_print()$/;"	kind:f	class:tiled_sublevel	signature:()
+debug_print	tiled_sublevel_class.hpp	/^	void debug_print();$/;"	kind:p	class:tiled_sublevel	access:public	signature:()
 debug_print	tiled_tileset_class.hpp	/^	inline void debug_print()$/;"	kind:f	class:tiled_tileset	access:public	signature:()
 debug_print_2	tiled_layer_class.hpp	/^	inline void debug_print_2()$/;"	kind:f	class:tiled_layer	access:public	signature:()
-debug_print_2	tiled_level_class.hpp	/^	void debug_print_2();$/;"	kind:p	class:tiled_level	access:public	signature:()
-debug_print_gid_st_map	tiled_level_class.cpp	/^void tiled_level::debug_print_gid_st_map()$/;"	kind:f	class:tiled_level	signature:()
-debug_print_gid_st_map	tiled_level_class.hpp	/^	void debug_print_gid_st_map();$/;"	kind:p	class:tiled_level	access:public	signature:()
-debug_print_gid_tileset_ptr_map	tiled_level_class.cpp	/^void tiled_level::debug_print_gid_tileset_ptr_map()$/;"	kind:f	class:tiled_level	signature:()
-debug_print_gid_tileset_ptr_map	tiled_level_class.hpp	/^	void debug_print_gid_tileset_ptr_map();$/;"	kind:p	class:tiled_level	access:public	signature:()
-doc	tiled_level_class.hpp	/^	xml_document<char> doc;$/;"	kind:m	class:tiled_level	access:public
+debug_print_2	tiled_sublevel_class.hpp	/^	void debug_print_2();$/;"	kind:p	class:tiled_sublevel	access:public	signature:()
+debug_print_gid_st_map	tiled_sublevel_class.cpp	/^void tiled_sublevel::debug_print_gid_st_map()$/;"	kind:f	class:tiled_sublevel	signature:()
+debug_print_gid_st_map	tiled_sublevel_class.hpp	/^	void debug_print_gid_st_map();$/;"	kind:p	class:tiled_sublevel	access:public	signature:()
+debug_print_gid_tileset_ptr_map	tiled_sublevel_class.cpp	/^void tiled_sublevel::debug_print_gid_tileset_ptr_map()$/;"	kind:f	class:tiled_sublevel	signature:()
+debug_print_gid_tileset_ptr_map	tiled_sublevel_class.hpp	/^	void debug_print_gid_tileset_ptr_map();$/;"	kind:p	class:tiled_sublevel	access:public	signature:()
+debug_print_short	tiled_object_class_stuff.hpp	/^	inline void debug_print_short()$/;"	kind:f	class:tiled_object	access:public	signature:()
+doc	tiled_sublevel_class.hpp	/^	xml_document<char> doc;$/;"	kind:m	class:tiled_sublevel	access:public
+extra_param_0	sprite_level_data_stuff.hpp	/^	u32 extra_param_0;$/;"	kind:m	class:sprite_init_param_group	access:public
+extra_param_1	sprite_level_data_stuff.hpp	/^	u32 extra_param_1;$/;"	kind:m	class:sprite_init_param_group	access:public
+extra_param_2	sprite_level_data_stuff.hpp	/^	u32 extra_param_2;$/;"	kind:m	class:sprite_init_param_group	access:public
+extra_param_3	sprite_level_data_stuff.hpp	/^	u32 extra_param_3;$/;"	kind:m	class:sprite_init_param_group	access:public
 facing_right	sprite_level_data_stuff.hpp	/^	bool facing_right;$/;"	kind:m	class:sprite_init_param_group	access:public
-file_was_opened	tiled_level_class.hpp	/^	bool file_was_opened;$/;"	kind:m	class:tiled_level	access:public
+file_was_opened	tiled_sublevel_class.hpp	/^	bool file_was_opened;$/;"	kind:m	class:tiled_sublevel	access:public
 firstgid	tiled_tileset_class.hpp	/^	u32 firstgid;$/;"	kind:m	class:tiled_tileset	access:public
 fixed24p8	fixed24p8_class.hpp	/^	inline fixed24p8( s32 s_data )$/;"	kind:f	class:fixed24p8	access:public	signature:( s32 s_data )
 fixed24p8	fixed24p8_class.hpp	/^	inline fixed24p8( s32 whole_part, u8 frac_part )$/;"	kind:f	class:fixed24p8	access:public	signature:( s32 whole_part, u8 frac_part )
@@ -91,12 +125,12 @@ fixed24p8::trunc_to_int	fixed24p8_class.hpp	/^	inline s32 trunc_to_int() const;$
 fixed24p8::trunc_to_int	fixed24p8_class.hpp	/^inline s32 fixed24p8::trunc_to_int() const$/;"	kind:f	class:fixed24p8	signature:() const
 fixed24p8_class_hpp	fixed24p8_class.hpp	2;"	kind:d
 frac_mask	fixed24p8_class.hpp	/^	static const u32 frac_mask = 0xff;$/;"	kind:m	class:fixed24p8	access:public
-generate_level_cpp_file	tiled_level_class.cpp	/^void tiled_level::generate_level_cpp_file()$/;"	kind:f	class:tiled_level	signature:()
-generate_level_cpp_file	tiled_level_class.hpp	/^	void generate_level_cpp_file();$/;"	kind:p	class:tiled_level	access:protected	signature:()
-generate_level_header	tiled_level_class.cpp	/^void tiled_level::generate_level_header()$/;"	kind:f	class:tiled_level	signature:()
-generate_level_header	tiled_level_class.hpp	/^	void generate_level_header();$/;"	kind:p	class:tiled_level	access:protected	signature:()
-generate_the_level	tiled_level_class.cpp	/^void tiled_level::generate_the_level()$/;"	kind:f	class:tiled_level	signature:()
-generate_the_level	tiled_level_class.hpp	/^	void generate_the_level();$/;"	kind:p	class:tiled_level	access:public	signature:()
+generate_sublevel_cpp_file	tiled_sublevel_class.cpp	/^void tiled_sublevel::generate_sublevel_cpp_file()$/;"	kind:f	class:tiled_sublevel	signature:()
+generate_sublevel_cpp_file	tiled_sublevel_class.hpp	/^	void generate_sublevel_cpp_file();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
+generate_sublevel_header	tiled_sublevel_class.cpp	/^void tiled_sublevel::generate_sublevel_header()$/;"	kind:f	class:tiled_sublevel	signature:()
+generate_sublevel_header	tiled_sublevel_class.hpp	/^	void generate_sublevel_header();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
+generate_the_sublevel	tiled_sublevel_class.cpp	/^void tiled_sublevel::generate_the_sublevel()$/;"	kind:f	class:tiled_sublevel	signature:()
+generate_the_sublevel	tiled_sublevel_class.hpp	/^	void generate_the_sublevel();$/;"	kind:p	class:tiled_sublevel	access:public	signature:()
 get_block_type	block_stuff.hpp	/^	inline block_type get_block_type() const$/;"	kind:f	class:block	access:public	signature:() const
 get_bt_name	block_stuff.hpp	/^	inline const string& get_bt_name( block_type the_block_type )$/;"	kind:f	namespace:block_stuff	signature:( block_type the_block_type )
 get_bt_name_debug	block_stuff.hpp	/^	inline const string& get_bt_name_debug( block_type the_block_type )$/;"	kind:f	namespace:block_stuff	signature:( block_type the_block_type )
@@ -105,71 +139,43 @@ get_frac_bits	fixed24p8_class.hpp	/^	inline u8 get_frac_bits() const;$/;"	kind:p
 get_frac_bits	fixed24p8_class.hpp	/^inline u8 fixed24p8::get_frac_bits() const$/;"	kind:f	class:fixed24p8	signature:() const
 get_size	array_2d_helper_class.hpp	/^	u32 get_size() const$/;"	kind:f	class:array_2d_helper	access:public	signature:() const
 get_size_2d	array_2d_helper_class.hpp	/^	const vec2_u32& get_size_2d() const$/;"	kind:f	class:array_2d_helper	access:public	signature:() const
+get_sle_name	sublevel_entrance_class.hpp	/^inline const string& get_sle_name$/;"	kind:f	signature:( sublevel_entrance_type the_sublevel_entrance_type )
+get_sle_name_debug	sublevel_entrance_class.hpp	/^inline const string& get_sle_name_debug$/;"	kind:f	signature:( sublevel_entrance_type the_sublevel_entrance_type )
 get_st_name	sprite_type_stuff.hpp	/^inline const string& get_st_name( sprite_type the_sprite_type )$/;"	kind:f	signature:( sprite_type the_sprite_type )
 get_st_name_debug	sprite_type_stuff.hpp	/^inline const string& get_st_name_debug( sprite_type the_sprite_type )$/;"	kind:f	signature:( sprite_type the_sprite_type )
 get_the_array	array_2d_helper_class.hpp	/^	const type* get_the_array() const$/;"	kind:f	class:array_2d_helper	access:public	signature:() const
 get_uncompressed_block_data_file_name	utility_funcs.hpp	/^inline const string get_uncompressed_block_data_file_name$/;"	kind:f	signature:( const string& output_dirname, const string& output_basename )
 gid	tiled_object_class_stuff.hpp	/^	u32 id, gid_raw, gid;$/;"	kind:m	class:tiled_object	access:public
 gid_raw	tiled_object_class_stuff.hpp	/^	u32 id, gid_raw, gid;$/;"	kind:m	class:tiled_object	access:public
-gid_st_map	tiled_level_class.hpp	/^	map< u32, sprite_type > gid_st_map;$/;"	kind:m	class:tiled_level	access:public
-gid_tileset_ptr_map	tiled_level_class.hpp	/^	map< u32, tiled_tileset* > gid_tileset_ptr_map;$/;"	kind:m	class:tiled_level	access:public
+gid_st_map	tiled_sublevel_class.hpp	/^	map< u32, sprite_type > gid_st_map;$/;"	kind:m	class:tiled_sublevel	access:public
+gid_tileset_ptr_map	tiled_sublevel_class.hpp	/^	map< u32, tiled_tileset* > gid_tileset_ptr_map;$/;"	kind:m	class:tiled_sublevel	access:public
 height	array_2d_helper_class.hpp	/^	u32 height() const$/;"	kind:f	class:array_2d_helper	access:public	signature:() const
 hflip	tiled_object_class_stuff.hpp	/^	bool hflip, vflip;$/;"	kind:m	class:tiled_object	access:public
 id	tiled_object_class_stuff.hpp	/^	u32 id, gid_raw, gid;$/;"	kind:m	class:tiled_object	access:public
-in_level_pos	level_entrance_class.hpp	/^	vec2_f24p8 in_level_pos;$/;"	kind:m	class:level_entrance	access:public
+in_sublevel_pos	sublevel_entrance_class.hpp	/^	vec2_f24p8 in_sublevel_pos;$/;"	kind:m	class:sublevel_entrance	access:public
 init	array_2d_helper_class.hpp	/^	void init( type* s_the_array, const vec2_u32& s_size_2d )$/;"	kind:f	class:array_2d_helper	access:public	signature:( type* s_the_array, const vec2_u32& s_size_2d )
-init	level_class.cpp	/^void level::init( const vec2_u32& s_size_2d )$/;"	kind:f	class:level	signature:( const vec2_u32& s_size_2d )
-init	level_class.hpp	/^	void init( const vec2_u32& s_size_2d );$/;"	kind:p	class:level	access:public	signature:( const vec2_u32& s_size_2d )
+init	sublevel_class.cpp	/^void sublevel::init( const vec2_u32& s_size_2d )$/;"	kind:f	class:sublevel	signature:( const vec2_u32& s_size_2d )
+init	sublevel_class.hpp	/^	void init( const vec2_u32& s_size_2d );$/;"	kind:p	class:sublevel	access:public	signature:( const vec2_u32& s_size_2d )
 initial_block_grid_x_coord	sprite_level_data_stuff.hpp	/^	u32 initial_block_grid_x_coord;$/;"	kind:m	class:sprite_init_param_group	access:public
 initial_block_grid_y_coord	sprite_level_data_stuff.hpp	/^	u32 initial_block_grid_y_coord;$/;"	kind:m	class:sprite_init_param_group	access:public
 lastgid	tiled_tileset_class.hpp	/^	inline u32 lastgid() const$/;"	kind:f	class:tiled_tileset	access:public	signature:() const
-layer_vec	tiled_level_class.hpp	/^	vector<tiled_layer> layer_vec;$/;"	kind:m	class:tiled_level	access:public
-le_count	level_entrance_class.hpp	/^	le_count,$/;"	kind:e	enum:level_entrance_type
-le_start_of_level	level_entrance_class.hpp	/^	le_start_of_level,$/;"	kind:e	enum:level_entrance_type
-level	level_class.cpp	/^level::level( const vec2_u32& s_size_2d )$/;"	kind:f	class:level	signature:( const vec2_u32& s_size_2d )
-level	level_class.cpp	/^level::level()$/;"	kind:f	class:level	signature:()
-level	level_class.hpp	/^	level( const vec2_u32& s_size_2d );$/;"	kind:p	class:level	access:public	signature:( const vec2_u32& s_size_2d )
-level	level_class.hpp	/^	level();$/;"	kind:p	class:level	access:public	signature:()
-level	level_class.hpp	/^class level$/;"	kind:c
-level::compressed_block_data_vec	level_class.hpp	/^	vector<u32> compressed_block_data_vec;$/;"	kind:m	class:level	access:public
-level::init	level_class.cpp	/^void level::init( const vec2_u32& s_size_2d )$/;"	kind:f	class:level	signature:( const vec2_u32& s_size_2d )
-level::init	level_class.hpp	/^	void init( const vec2_u32& s_size_2d );$/;"	kind:p	class:level	access:public	signature:( const vec2_u32& s_size_2d )
-level::level	level_class.cpp	/^level::level( const vec2_u32& s_size_2d )$/;"	kind:f	class:level	signature:( const vec2_u32& s_size_2d )
-level::level	level_class.cpp	/^level::level()$/;"	kind:f	class:level	signature:()
-level::level	level_class.hpp	/^	level( const vec2_u32& s_size_2d );$/;"	kind:p	class:level	access:public	signature:( const vec2_u32& s_size_2d )
-level::level	level_class.hpp	/^	level();$/;"	kind:p	class:level	access:public	signature:()
-level::level_entrance_vec	level_class.hpp	/^	vector<level_entrance> level_entrance_vec;$/;"	kind:m	class:level	access:public
-level::max_num_blocks	level_class.cpp	/^const u32 level::max_num_blocks = max_size_2d.x * max_size_2d.y;$/;"	kind:m	class:level	file:
-level::max_num_blocks	level_class.hpp	/^	static const u32 max_num_blocks;$/;"	kind:m	class:level	access:public
-level::max_size_2d	level_class.cpp	/^const vec2_u32 level::max_size_2d = { 512, 32 };$/;"	kind:m	class:level	file:
-level::max_size_2d	level_class.hpp	/^	static const vec2_u32 max_size_2d;$/;"	kind:m	class:level	access:public
-level::real_size_2d	level_class.hpp	/^	vec2_u32 real_size_2d;$/;"	kind:m	class:level	access:public
-level::size_2d	level_class.hpp	/^	vec2_u32 size_2d;$/;"	kind:m	class:level	access:public
-level::sprite_ipg_vec	level_class.hpp	/^	vector<sprite_init_param_group> sprite_ipg_vec;$/;"	kind:m	class:level	access:public
-level::uncompressed_block_data_vec	level_class.hpp	/^	vector< vector<block> > uncompressed_block_data_vec;$/;"	kind:m	class:level	access:public
-level_class_hpp	level_class.hpp	2;"	kind:d
-level_entrance	level_entrance_class.hpp	/^class level_entrance$/;"	kind:c
-level_entrance::in_level_pos	level_entrance_class.hpp	/^	vec2_f24p8 in_level_pos;$/;"	kind:m	class:level_entrance	access:public
-level_entrance::type	level_entrance_class.hpp	/^	level_entrance_type type;$/;"	kind:m	class:level_entrance	access:public
-level_entrance_class_hpp	level_entrance_class.hpp	2;"	kind:d
-level_entrance_type	level_entrance_class.hpp	/^enum level_entrance_type$/;"	kind:g
-level_entrance_vec	level_class.hpp	/^	vector<level_entrance> level_entrance_vec;$/;"	kind:m	class:level	access:public
-level_str	tiled_level_class.hpp	/^	string level_str;$/;"	kind:m	class:tiled_level	access:public
+layer_vec	tiled_sublevel_class.hpp	/^	vector<tiled_layer> layer_vec;$/;"	kind:m	class:tiled_sublevel	access:public
 main	main.cpp	/^int main( int argc, char** argv )$/;"	kind:f	signature:( int argc, char** argv )
-map_header	tiled_level_class.hpp	/^	tiled_map_header map_header;$/;"	kind:m	class:tiled_level	access:public
-max_num_blocks	level_class.cpp	/^const u32 level::max_num_blocks = max_size_2d.x * max_size_2d.y;$/;"	kind:m	class:level	file:
-max_num_blocks	level_class.hpp	/^	static const u32 max_num_blocks;$/;"	kind:m	class:level	access:public
-max_size_2d	level_class.cpp	/^const vec2_u32 level::max_size_2d = { 512, 32 };$/;"	kind:m	class:level	file:
-max_size_2d	level_class.hpp	/^	static const vec2_u32 max_size_2d;$/;"	kind:m	class:level	access:public
+map_header	tiled_sublevel_class.hpp	/^	tiled_map_header map_header;$/;"	kind:m	class:tiled_sublevel	access:public
+max_num_blocks	sublevel_class.cpp	/^const u32 sublevel::max_num_blocks = max_size_2d.x * max_size_2d.y;$/;"	kind:m	class:sublevel	file:
+max_num_blocks	sublevel_class.hpp	/^	static const u32 max_num_blocks;$/;"	kind:m	class:sublevel	access:public
+max_size_2d	sublevel_class.cpp	/^const vec2_u32 sublevel::max_size_2d = { 512, 32 };$/;"	kind:m	class:sublevel	file:
+max_size_2d	sublevel_class.hpp	/^	static const vec2_u32 max_size_2d;$/;"	kind:m	class:sublevel	access:public
 misc_includes_hpp	misc_includes.hpp	2;"	kind:d
 misc_types_hpp	misc_types.hpp	2;"	kind:d
 name	tiled_layer_class.hpp	/^	string name;$/;"	kind:m	class:tiled_layer	access:public
+name	tiled_object_class_stuff.hpp	/^	string name, value;$/;"	kind:m	class:tiled_object_property	access:public
 name	tiled_object_class_stuff.hpp	/^	string name;$/;"	kind:m	class:tiled_objectgroup	access:public
 name	tiled_tileset_class.hpp	/^	string name;$/;"	kind:m	class:tiled_tileset	access:public
 nextobjectid	tiled_map_header_class.hpp	/^	u32 nextobjectid;$/;"	kind:m	class:tiled_map_header	access:public
-object_ptr_vec	tiled_level_class.hpp	/^	vector< vector<tiled_object*> > object_ptr_vec;$/;"	kind:m	class:tiled_level	access:public
+object_ptr_vec	tiled_sublevel_class.hpp	/^	vector< vector<tiled_object*> > object_ptr_vec;$/;"	kind:m	class:tiled_sublevel	access:public
 object_vec	tiled_object_class_stuff.hpp	/^	vector<tiled_object> object_vec;$/;"	kind:m	class:tiled_objectgroup	access:public
-objectgroup_vec	tiled_level_class.hpp	/^	vector<tiled_objectgroup> objectgroup_vec;$/;"	kind:m	class:tiled_level	access:public
+objectgroup_vec	tiled_sublevel_class.hpp	/^	vector<tiled_objectgroup> objectgroup_vec;$/;"	kind:m	class:tiled_sublevel	access:public
 operator !=	vec2_class.hpp	/^	inline bool operator != ( const vec2<type>& to_cmp ) const$/;"	kind:f	class:vec2	access:public	signature:( const vec2<type>& to_cmp ) const
 operator *	vec2_class.hpp	/^	inline vec2<type> operator * ( const type& scale ) const$/;"	kind:f	class:vec2	access:public	signature:( const type& scale ) const
 operator *	vec2_class.hpp	/^inline vec2<type> operator * ( const type& scale, $/;"	kind:f	signature:( const type& scale, const vec2<type>& vec2_to_mul )
@@ -182,16 +188,19 @@ operator <	sprite_level_data_stuff.hpp	/^	inline bool operator < ( const sprite_
 operator =	array_2d_helper_class.hpp	/^	void operator = ( array_2d_helper<type>& to_copy )$/;"	kind:f	class:array_2d_helper	access:public	signature:( array_2d_helper<type>& to_copy )
 operator =	vec2_class.hpp	/^	inline vec2<type>& operator = ( const vec2<type>& to_copy )$/;"	kind:f	class:vec2	access:public	signature:( const vec2<type>& to_copy )
 operator ==	vec2_class.hpp	/^	inline bool operator == ( const vec2<type>& to_cmp ) const$/;"	kind:f	class:vec2	access:public	signature:( const vec2<type>& to_cmp ) const
-output_basename	tiled_level_class.hpp	/^	string output_dirname, output_basename;$/;"	kind:m	class:tiled_level	access:public
-output_dirname	tiled_level_class.hpp	/^	string output_dirname, output_basename;$/;"	kind:m	class:tiled_level	access:public
-output_prefix	tiled_level_class.hpp	/^	inline const string output_prefix() const$/;"	kind:f	class:tiled_level	access:protected	signature:() const
+output_basename	tiled_sublevel_class.hpp	/^	string output_dirname, output_basename;$/;"	kind:m	class:tiled_sublevel	access:public
+output_dirname	tiled_sublevel_class.hpp	/^	string output_dirname, output_basename;$/;"	kind:m	class:tiled_sublevel	access:public
+output_prefix	tiled_sublevel_class.hpp	/^	inline const string output_prefix() const$/;"	kind:f	class:tiled_sublevel	access:protected	signature:() const
 persistent_block_data_array_size	block_stuff.hpp	/^	constexpr u32 persistent_block_data_array_size = 2048;$/;"	kind:m	namespace:block_stuff
 persistent_data_index	block_stuff.hpp	/^	u16 persistent_data_index;$/;"	kind:m	class:block	access:public
-read_compressed_block_data_from_file	tiled_level_class.cpp	/^void tiled_level::read_compressed_block_data_from_file()$/;"	kind:f	class:tiled_level	signature:()
-read_compressed_block_data_from_file	tiled_level_class.hpp	/^	void read_compressed_block_data_from_file();$/;"	kind:p	class:tiled_level	access:protected	signature:()
+property_vec	tiled_object_class_stuff.hpp	/^	vector<tiled_object_property> property_vec;$/;"	kind:m	class:tiled_object	access:public
+read_compressed_block_data_from_file	tiled_sublevel_class.cpp	/^void tiled_sublevel::read_compressed_block_data_from_file()$/;"	kind:f	class:tiled_sublevel	signature:()
+read_compressed_block_data_from_file	tiled_sublevel_class.hpp	/^	void read_compressed_block_data_from_file();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
 real_block_grid_pos	tiled_object_class_stuff.hpp	/^	vec2_u32 real_block_grid_pos;$/;"	kind:m	class:tiled_object	access:public
-real_size_2d	level_class.hpp	/^	vec2_u32 real_size_2d;$/;"	kind:m	class:level	access:public
+real_size_2d	sublevel_class.hpp	/^	vec2_u32 real_size_2d;$/;"	kind:m	class:sublevel	access:public
 real_size_2d	tiled_object_class_stuff.hpp	/^	vec2_u32 real_size_2d;$/;"	kind:m	class:tiled_object	access:public
+reject	tiled_object_class_stuff.hpp	/^	inline void reject()$/;"	kind:f	class:tiled_object	access:public	signature:()
+reject_and_exit	tiled_object_class_stuff.hpp	/^	inline void reject_and_exit()$/;"	kind:f	class:tiled_object	access:public	signature:()
 round_to_int	fixed24p8_class.hpp	/^	inline s32 round_to_int() const;$/;"	kind:p	class:fixed24p8	access:public	signature:() const
 round_to_int	fixed24p8_class.hpp	/^inline s32 fixed24p8::round_to_int() const$/;"	kind:f	class:fixed24p8	signature:() const
 s16	misc_types.hpp	/^typedef uint16_t u16; typedef int16_t s16;$/;"	kind:t
@@ -201,19 +210,28 @@ s8	misc_types.hpp	/^typedef uint8_t u8; typedef int8_t s8;$/;"	kind:t
 shift	fixed24p8_class.hpp	/^	static const u32 shift = 8;$/;"	kind:m	class:fixed24p8	access:public
 size	array_2d_helper_class.hpp	/^	u32 size;$/;"	kind:m	class:array_2d_helper	access:protected
 size_2d	array_2d_helper_class.hpp	/^	vec2_u32 size_2d;$/;"	kind:m	class:array_2d_helper	access:protected
-size_2d	level_class.hpp	/^	vec2_u32 size_2d;$/;"	kind:m	class:level	access:public
+size_2d	sublevel_class.hpp	/^	vec2_u32 size_2d;$/;"	kind:m	class:sublevel	access:public
 size_2d	tiled_layer_class.hpp	/^	vec2_u32 size_2d;$/;"	kind:m	class:tiled_layer	access:public
 size_2d	tiled_map_header_class.hpp	/^	vec2_u32 size_2d, tile_size_2d;$/;"	kind:m	class:tiled_map_header	access:public
 size_2d	tiled_object_class_stuff.hpp	/^	vec2<double> size_2d;$/;"	kind:m	class:tiled_object	access:public
+sle_count	sublevel_entrance_class.hpp	/^	sle_count,$/;"	kind:e	enum:sublevel_entrance_type
+sle_from_warp_block	sublevel_entrance_class.hpp	/^	sle_from_warp_block,$/;"	kind:e	enum:sublevel_entrance_type
+sle_name_vec	sublevel_entrance_class.cpp	/^vector<string> sle_name_vec = { "sle_start_of_level", $/;"	kind:v
+sle_start_of_level	sublevel_entrance_class.hpp	/^	sle_start_of_level,$/;"	kind:e	enum:sublevel_entrance_type
+sle_unknown_str	sublevel_entrance_class.cpp	/^const string sle_unknown_str = string("sle_unknown");$/;"	kind:v
 spawn_state	sprite_level_data_stuff.hpp	/^	sprite_spawn_state spawn_state;$/;"	kind:m	class:sprite_init_param_group	access:public
 sprite_init_param_group	sprite_level_data_stuff.hpp	/^class sprite_init_param_group$/;"	kind:c
+sprite_init_param_group::extra_param_0	sprite_level_data_stuff.hpp	/^	u32 extra_param_0;$/;"	kind:m	class:sprite_init_param_group	access:public
+sprite_init_param_group::extra_param_1	sprite_level_data_stuff.hpp	/^	u32 extra_param_1;$/;"	kind:m	class:sprite_init_param_group	access:public
+sprite_init_param_group::extra_param_2	sprite_level_data_stuff.hpp	/^	u32 extra_param_2;$/;"	kind:m	class:sprite_init_param_group	access:public
+sprite_init_param_group::extra_param_3	sprite_level_data_stuff.hpp	/^	u32 extra_param_3;$/;"	kind:m	class:sprite_init_param_group	access:public
 sprite_init_param_group::facing_right	sprite_level_data_stuff.hpp	/^	bool facing_right;$/;"	kind:m	class:sprite_init_param_group	access:public
 sprite_init_param_group::initial_block_grid_x_coord	sprite_level_data_stuff.hpp	/^	u32 initial_block_grid_x_coord;$/;"	kind:m	class:sprite_init_param_group	access:public
 sprite_init_param_group::initial_block_grid_y_coord	sprite_level_data_stuff.hpp	/^	u32 initial_block_grid_y_coord;$/;"	kind:m	class:sprite_init_param_group	access:public
 sprite_init_param_group::operator <	sprite_level_data_stuff.hpp	/^	inline bool operator < ( const sprite_init_param_group& other ) const$/;"	kind:f	class:sprite_init_param_group	access:public	signature:( const sprite_init_param_group& other ) const
 sprite_init_param_group::spawn_state	sprite_level_data_stuff.hpp	/^	sprite_spawn_state spawn_state;$/;"	kind:m	class:sprite_init_param_group	access:public
 sprite_init_param_group::type	sprite_level_data_stuff.hpp	/^	sprite_type type;$/;"	kind:m	class:sprite_init_param_group	access:public
-sprite_ipg_vec	level_class.hpp	/^	vector<sprite_init_param_group> sprite_ipg_vec;$/;"	kind:m	class:level	access:public
+sprite_ipg_vec	sublevel_class.hpp	/^	vector<sprite_init_param_group> sprite_ipg_vec;$/;"	kind:m	class:sublevel	access:public
 sprite_level_data_stuff_hpp	sprite_level_data_stuff.hpp	2;"	kind:d
 sprite_spawn_state	sprite_level_data_stuff.hpp	/^enum sprite_spawn_state$/;"	kind:g
 sprite_type	sprite_type_stuff.hpp	/^enum sprite_type$/;"	kind:g
@@ -231,9 +249,54 @@ st_name_vec	sprite_type_stuff.cpp	/^vector<string> st_name_vec = { "st_default",
 st_player	sprite_type_stuff.hpp	/^	st_player,$/;"	kind:e	enum:sprite_type
 st_unknown_str	sprite_type_stuff.cpp	/^const string st_unknown_str = string("st_unknown");$/;"	kind:v
 st_waffle	sprite_type_stuff.hpp	/^	st_waffle,$/;"	kind:e	enum:sprite_type
+st_warp_block_0	sprite_type_stuff.hpp	/^	st_warp_block_0, st_warp_block_1, st_warp_block_2, st_warp_block_3,$/;"	kind:e	enum:sprite_type
+st_warp_block_1	sprite_type_stuff.hpp	/^	st_warp_block_0, st_warp_block_1, st_warp_block_2, st_warp_block_3,$/;"	kind:e	enum:sprite_type
+st_warp_block_10	sprite_type_stuff.hpp	/^	st_warp_block_8, st_warp_block_9, st_warp_block_10, st_warp_block_11,$/;"	kind:e	enum:sprite_type
+st_warp_block_11	sprite_type_stuff.hpp	/^	st_warp_block_8, st_warp_block_9, st_warp_block_10, st_warp_block_11,$/;"	kind:e	enum:sprite_type
+st_warp_block_12	sprite_type_stuff.hpp	/^	st_warp_block_12, st_warp_block_13, st_warp_block_14, st_warp_block_15,$/;"	kind:e	enum:sprite_type
+st_warp_block_13	sprite_type_stuff.hpp	/^	st_warp_block_12, st_warp_block_13, st_warp_block_14, st_warp_block_15,$/;"	kind:e	enum:sprite_type
+st_warp_block_14	sprite_type_stuff.hpp	/^	st_warp_block_12, st_warp_block_13, st_warp_block_14, st_warp_block_15,$/;"	kind:e	enum:sprite_type
+st_warp_block_15	sprite_type_stuff.hpp	/^	st_warp_block_12, st_warp_block_13, st_warp_block_14, st_warp_block_15,$/;"	kind:e	enum:sprite_type
+st_warp_block_2	sprite_type_stuff.hpp	/^	st_warp_block_0, st_warp_block_1, st_warp_block_2, st_warp_block_3,$/;"	kind:e	enum:sprite_type
+st_warp_block_3	sprite_type_stuff.hpp	/^	st_warp_block_0, st_warp_block_1, st_warp_block_2, st_warp_block_3,$/;"	kind:e	enum:sprite_type
+st_warp_block_4	sprite_type_stuff.hpp	/^	st_warp_block_4, st_warp_block_5, st_warp_block_6, st_warp_block_7,$/;"	kind:e	enum:sprite_type
+st_warp_block_5	sprite_type_stuff.hpp	/^	st_warp_block_4, st_warp_block_5, st_warp_block_6, st_warp_block_7,$/;"	kind:e	enum:sprite_type
+st_warp_block_6	sprite_type_stuff.hpp	/^	st_warp_block_4, st_warp_block_5, st_warp_block_6, st_warp_block_7,$/;"	kind:e	enum:sprite_type
+st_warp_block_7	sprite_type_stuff.hpp	/^	st_warp_block_4, st_warp_block_5, st_warp_block_6, st_warp_block_7,$/;"	kind:e	enum:sprite_type
+st_warp_block_8	sprite_type_stuff.hpp	/^	st_warp_block_8, st_warp_block_9, st_warp_block_10, st_warp_block_11,$/;"	kind:e	enum:sprite_type
+st_warp_block_9	sprite_type_stuff.hpp	/^	st_warp_block_8, st_warp_block_9, st_warp_block_10, st_warp_block_11,$/;"	kind:e	enum:sprite_type
+sublevel	sublevel_class.cpp	/^sublevel::sublevel( const vec2_u32& s_size_2d )$/;"	kind:f	class:sublevel	signature:( const vec2_u32& s_size_2d )
+sublevel	sublevel_class.cpp	/^sublevel::sublevel()$/;"	kind:f	class:sublevel	signature:()
+sublevel	sublevel_class.hpp	/^	sublevel( const vec2_u32& s_size_2d );$/;"	kind:p	class:sublevel	access:public	signature:( const vec2_u32& s_size_2d )
+sublevel	sublevel_class.hpp	/^	sublevel();$/;"	kind:p	class:sublevel	access:public	signature:()
+sublevel	sublevel_class.hpp	/^class sublevel$/;"	kind:c
+sublevel::compressed_block_data_vec	sublevel_class.hpp	/^	vector<u32> compressed_block_data_vec;$/;"	kind:m	class:sublevel	access:public
+sublevel::init	sublevel_class.cpp	/^void sublevel::init( const vec2_u32& s_size_2d )$/;"	kind:f	class:sublevel	signature:( const vec2_u32& s_size_2d )
+sublevel::init	sublevel_class.hpp	/^	void init( const vec2_u32& s_size_2d );$/;"	kind:p	class:sublevel	access:public	signature:( const vec2_u32& s_size_2d )
+sublevel::max_num_blocks	sublevel_class.cpp	/^const u32 sublevel::max_num_blocks = max_size_2d.x * max_size_2d.y;$/;"	kind:m	class:sublevel	file:
+sublevel::max_num_blocks	sublevel_class.hpp	/^	static const u32 max_num_blocks;$/;"	kind:m	class:sublevel	access:public
+sublevel::max_size_2d	sublevel_class.cpp	/^const vec2_u32 sublevel::max_size_2d = { 512, 32 };$/;"	kind:m	class:sublevel	file:
+sublevel::max_size_2d	sublevel_class.hpp	/^	static const vec2_u32 max_size_2d;$/;"	kind:m	class:sublevel	access:public
+sublevel::real_size_2d	sublevel_class.hpp	/^	vec2_u32 real_size_2d;$/;"	kind:m	class:sublevel	access:public
+sublevel::size_2d	sublevel_class.hpp	/^	vec2_u32 size_2d;$/;"	kind:m	class:sublevel	access:public
+sublevel::sprite_ipg_vec	sublevel_class.hpp	/^	vector<sprite_init_param_group> sprite_ipg_vec;$/;"	kind:m	class:sublevel	access:public
+sublevel::sublevel	sublevel_class.cpp	/^sublevel::sublevel( const vec2_u32& s_size_2d )$/;"	kind:f	class:sublevel	signature:( const vec2_u32& s_size_2d )
+sublevel::sublevel	sublevel_class.cpp	/^sublevel::sublevel()$/;"	kind:f	class:sublevel	signature:()
+sublevel::sublevel	sublevel_class.hpp	/^	sublevel( const vec2_u32& s_size_2d );$/;"	kind:p	class:sublevel	access:public	signature:( const vec2_u32& s_size_2d )
+sublevel::sublevel	sublevel_class.hpp	/^	sublevel();$/;"	kind:p	class:sublevel	access:public	signature:()
+sublevel::sublevel_entrance_vec	sublevel_class.hpp	/^	vector<sublevel_entrance> sublevel_entrance_vec;$/;"	kind:m	class:sublevel	access:public
+sublevel::uncompressed_block_data_vec	sublevel_class.hpp	/^	vector< vector<block> > uncompressed_block_data_vec;$/;"	kind:m	class:sublevel	access:public
+sublevel_class_hpp	sublevel_class.hpp	2;"	kind:d
+sublevel_entrance	sublevel_entrance_class.hpp	/^class sublevel_entrance$/;"	kind:c
+sublevel_entrance::in_sublevel_pos	sublevel_entrance_class.hpp	/^	vec2_f24p8 in_sublevel_pos;$/;"	kind:m	class:sublevel_entrance	access:public
+sublevel_entrance::type	sublevel_entrance_class.hpp	/^	sublevel_entrance_type type;$/;"	kind:m	class:sublevel_entrance	access:public
+sublevel_entrance_class_hpp	sublevel_entrance_class.hpp	2;"	kind:d
+sublevel_entrance_type	sublevel_entrance_class.hpp	/^enum sublevel_entrance_type$/;"	kind:g
+sublevel_entrance_vec	sublevel_class.hpp	/^	vector<sublevel_entrance> sublevel_entrance_vec;$/;"	kind:m	class:sublevel	access:public
+sublevel_str	tiled_sublevel_class.hpp	/^	string sublevel_str;$/;"	kind:m	class:tiled_sublevel	access:public
 the_array	array_2d_helper_class.hpp	/^	type* the_array;$/;"	kind:m	class:array_2d_helper	access:public
-the_level_ptr	tiled_level_class.hpp	/^	level* the_level_ptr;$/;"	kind:m	class:tiled_level	access:public
 the_sprite_type	tiled_object_class_stuff.hpp	/^	sprite_type the_sprite_type;$/;"	kind:m	class:tiled_object	access:public
+the_sublevel_ptr	tiled_sublevel_class.hpp	/^	sublevel* the_sublevel_ptr;$/;"	kind:m	class:tiled_sublevel	access:public
 tile_ids	tiled_layer_class.hpp	/^	vector< vector<u32> > tile_ids;$/;"	kind:m	class:tiled_layer	access:public
 tile_size_2d	tiled_map_header_class.hpp	/^	vec2_u32 size_2d, tile_size_2d;$/;"	kind:m	class:tiled_map_header	access:public
 tile_size_2d	tiled_tileset_class.hpp	/^	vec2_u32 tile_size_2d;$/;"	kind:m	class:tiled_tileset	access:public
@@ -252,47 +315,6 @@ tiled_layer::tiled_layer	tiled_layer_class.cpp	/^tiled_layer::tiled_layer( xml_n
 tiled_layer::tiled_layer	tiled_layer_class.hpp	/^	inline tiled_layer()$/;"	kind:f	class:tiled_layer	access:public	signature:()
 tiled_layer::tiled_layer	tiled_layer_class.hpp	/^	tiled_layer( xml_node<>* node );$/;"	kind:p	class:tiled_layer	access:public	signature:( xml_node<* node )
 tiled_layer_class_hpp	tiled_layer_class.hpp	2;"	kind:d
-tiled_level	tiled_level_class.cpp	/^tiled_level::tiled_level( const string& level_file_name,$/;"	kind:f	class:tiled_level	signature:( const string& level_file_name, const string& s_output_prefix, level& the_level )
-tiled_level	tiled_level_class.hpp	/^	tiled_level( const string& level_file_name, $/;"	kind:p	class:tiled_level	access:public	signature:( const string& level_file_name, const string& s_output_prefix, level& the_level )
-tiled_level	tiled_level_class.hpp	/^class tiled_level$/;"	kind:c
-tiled_level::build_gid_maps_and_correct_objects	tiled_level_class.cpp	/^void tiled_level::build_gid_maps_and_correct_objects()$/;"	kind:f	class:tiled_level	signature:()
-tiled_level::build_gid_maps_and_correct_objects	tiled_level_class.hpp	/^	void build_gid_maps_and_correct_objects();$/;"	kind:p	class:tiled_level	access:protected	signature:()
-tiled_level::build_object_ptr_vec	tiled_level_class.cpp	/^void tiled_level::build_object_ptr_vec()$/;"	kind:f	class:tiled_level	signature:()
-tiled_level::build_object_ptr_vec	tiled_level_class.hpp	/^	void build_object_ptr_vec();$/;"	kind:p	class:tiled_level	access:protected	signature:()
-tiled_level::debug_print	tiled_level_class.cpp	/^void tiled_level::debug_print()$/;"	kind:f	class:tiled_level	signature:()
-tiled_level::debug_print	tiled_level_class.hpp	/^	void debug_print();$/;"	kind:p	class:tiled_level	access:public	signature:()
-tiled_level::debug_print_2	tiled_level_class.hpp	/^	void debug_print_2();$/;"	kind:p	class:tiled_level	access:public	signature:()
-tiled_level::debug_print_gid_st_map	tiled_level_class.cpp	/^void tiled_level::debug_print_gid_st_map()$/;"	kind:f	class:tiled_level	signature:()
-tiled_level::debug_print_gid_st_map	tiled_level_class.hpp	/^	void debug_print_gid_st_map();$/;"	kind:p	class:tiled_level	access:public	signature:()
-tiled_level::debug_print_gid_tileset_ptr_map	tiled_level_class.cpp	/^void tiled_level::debug_print_gid_tileset_ptr_map()$/;"	kind:f	class:tiled_level	signature:()
-tiled_level::debug_print_gid_tileset_ptr_map	tiled_level_class.hpp	/^	void debug_print_gid_tileset_ptr_map();$/;"	kind:p	class:tiled_level	access:public	signature:()
-tiled_level::doc	tiled_level_class.hpp	/^	xml_document<char> doc;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::file_was_opened	tiled_level_class.hpp	/^	bool file_was_opened;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::generate_level_cpp_file	tiled_level_class.cpp	/^void tiled_level::generate_level_cpp_file()$/;"	kind:f	class:tiled_level	signature:()
-tiled_level::generate_level_cpp_file	tiled_level_class.hpp	/^	void generate_level_cpp_file();$/;"	kind:p	class:tiled_level	access:protected	signature:()
-tiled_level::generate_level_header	tiled_level_class.cpp	/^void tiled_level::generate_level_header()$/;"	kind:f	class:tiled_level	signature:()
-tiled_level::generate_level_header	tiled_level_class.hpp	/^	void generate_level_header();$/;"	kind:p	class:tiled_level	access:protected	signature:()
-tiled_level::generate_the_level	tiled_level_class.cpp	/^void tiled_level::generate_the_level()$/;"	kind:f	class:tiled_level	signature:()
-tiled_level::generate_the_level	tiled_level_class.hpp	/^	void generate_the_level();$/;"	kind:p	class:tiled_level	access:public	signature:()
-tiled_level::gid_st_map	tiled_level_class.hpp	/^	map< u32, sprite_type > gid_st_map;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::gid_tileset_ptr_map	tiled_level_class.hpp	/^	map< u32, tiled_tileset* > gid_tileset_ptr_map;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::layer_vec	tiled_level_class.hpp	/^	vector<tiled_layer> layer_vec;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::level_str	tiled_level_class.hpp	/^	string level_str;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::map_header	tiled_level_class.hpp	/^	tiled_map_header map_header;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::object_ptr_vec	tiled_level_class.hpp	/^	vector< vector<tiled_object*> > object_ptr_vec;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::objectgroup_vec	tiled_level_class.hpp	/^	vector<tiled_objectgroup> objectgroup_vec;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::output_basename	tiled_level_class.hpp	/^	string output_dirname, output_basename;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::output_dirname	tiled_level_class.hpp	/^	string output_dirname, output_basename;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::output_prefix	tiled_level_class.hpp	/^	inline const string output_prefix() const$/;"	kind:f	class:tiled_level	access:protected	signature:() const
-tiled_level::read_compressed_block_data_from_file	tiled_level_class.cpp	/^void tiled_level::read_compressed_block_data_from_file()$/;"	kind:f	class:tiled_level	signature:()
-tiled_level::read_compressed_block_data_from_file	tiled_level_class.hpp	/^	void read_compressed_block_data_from_file();$/;"	kind:p	class:tiled_level	access:protected	signature:()
-tiled_level::the_level_ptr	tiled_level_class.hpp	/^	level* the_level_ptr;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::tiled_level	tiled_level_class.cpp	/^tiled_level::tiled_level( const string& level_file_name,$/;"	kind:f	class:tiled_level	signature:( const string& level_file_name, const string& s_output_prefix, level& the_level )
-tiled_level::tiled_level	tiled_level_class.hpp	/^	tiled_level( const string& level_file_name, $/;"	kind:p	class:tiled_level	access:public	signature:( const string& level_file_name, const string& s_output_prefix, level& the_level )
-tiled_level::tileset_vec	tiled_level_class.hpp	/^	vector<tiled_tileset> tileset_vec;$/;"	kind:m	class:tiled_level	access:public
-tiled_level::write_uncompressed_block_data_to_file	tiled_level_class.cpp	/^void tiled_level::write_uncompressed_block_data_to_file()$/;"	kind:f	class:tiled_level	signature:()
-tiled_level::write_uncompressed_block_data_to_file	tiled_level_class.hpp	/^	void write_uncompressed_block_data_to_file();$/;"	kind:p	class:tiled_level	access:protected	signature:()
-tiled_level_class_hpp	tiled_level_class.hpp	2;"	kind:d
 tiled_map_header	tiled_map_header_class.cpp	/^tiled_map_header::tiled_map_header( xml_node<>* map_node )$/;"	kind:f	class:tiled_map_header	signature:( xml_node<* map_node )
 tiled_map_header	tiled_map_header_class.hpp	/^	inline tiled_map_header()$/;"	kind:f	class:tiled_map_header	access:public	signature:()
 tiled_map_header	tiled_map_header_class.hpp	/^	tiled_map_header( xml_node<>* map_node );$/;"	kind:p	class:tiled_map_header	access:public	signature:( xml_node<* map_node )
@@ -307,17 +329,26 @@ tiled_map_header::tiled_map_header	tiled_map_header_class.hpp	/^	tiled_map_heade
 tiled_map_header_class_hpp	tiled_map_header_class.hpp	2;"	kind:d
 tiled_object	tiled_object_class_stuff.hpp	/^class tiled_object$/;"	kind:c
 tiled_object::block_grid_pos	tiled_object_class_stuff.hpp	/^	vec2_u32 block_grid_pos;$/;"	kind:m	class:tiled_object	access:public
+tiled_object::build_property_vec	tiled_object_class_stuff.cpp	/^void tiled_object::build_property_vec( xml_node<>* properties_node )$/;"	kind:f	class:tiled_object	signature:( xml_node<* properties_node )
+tiled_object::build_property_vec	tiled_object_class_stuff.hpp	/^	void build_property_vec( xml_node<>* properties_node );$/;"	kind:p	class:tiled_object	access:public	signature:( xml_node<* properties_node )
 tiled_object::debug_print	tiled_object_class_stuff.hpp	/^	inline void debug_print()$/;"	kind:f	class:tiled_object	access:public	signature:()
+tiled_object::debug_print_short	tiled_object_class_stuff.hpp	/^	inline void debug_print_short()$/;"	kind:f	class:tiled_object	access:public	signature:()
 tiled_object::gid	tiled_object_class_stuff.hpp	/^	u32 id, gid_raw, gid;$/;"	kind:m	class:tiled_object	access:public
 tiled_object::gid_raw	tiled_object_class_stuff.hpp	/^	u32 id, gid_raw, gid;$/;"	kind:m	class:tiled_object	access:public
 tiled_object::hflip	tiled_object_class_stuff.hpp	/^	bool hflip, vflip;$/;"	kind:m	class:tiled_object	access:public
 tiled_object::id	tiled_object_class_stuff.hpp	/^	u32 id, gid_raw, gid;$/;"	kind:m	class:tiled_object	access:public
+tiled_object::property_vec	tiled_object_class_stuff.hpp	/^	vector<tiled_object_property> property_vec;$/;"	kind:m	class:tiled_object	access:public
 tiled_object::real_block_grid_pos	tiled_object_class_stuff.hpp	/^	vec2_u32 real_block_grid_pos;$/;"	kind:m	class:tiled_object	access:public
 tiled_object::real_size_2d	tiled_object_class_stuff.hpp	/^	vec2_u32 real_size_2d;$/;"	kind:m	class:tiled_object	access:public
+tiled_object::reject	tiled_object_class_stuff.hpp	/^	inline void reject()$/;"	kind:f	class:tiled_object	access:public	signature:()
+tiled_object::reject_and_exit	tiled_object_class_stuff.hpp	/^	inline void reject_and_exit()$/;"	kind:f	class:tiled_object	access:public	signature:()
 tiled_object::size_2d	tiled_object_class_stuff.hpp	/^	vec2<double> size_2d;$/;"	kind:m	class:tiled_object	access:public
 tiled_object::the_sprite_type	tiled_object_class_stuff.hpp	/^	sprite_type the_sprite_type;$/;"	kind:m	class:tiled_object	access:public
 tiled_object::vflip	tiled_object_class_stuff.hpp	/^	bool hflip, vflip;$/;"	kind:m	class:tiled_object	access:public
 tiled_object_class_stuff_hpp	tiled_object_class_stuff.hpp	2;"	kind:d
+tiled_object_property	tiled_object_class_stuff.hpp	/^class tiled_object_property$/;"	kind:c
+tiled_object_property::name	tiled_object_class_stuff.hpp	/^	string name, value;$/;"	kind:m	class:tiled_object_property	access:public
+tiled_object_property::value	tiled_object_class_stuff.hpp	/^	string name, value;$/;"	kind:m	class:tiled_object_property	access:public
 tiled_objectgroup	tiled_object_class_stuff.cpp	/^tiled_objectgroup::tiled_objectgroup( xml_node<>* node )$/;"	kind:f	class:tiled_objectgroup	signature:( xml_node<* node )
 tiled_objectgroup	tiled_object_class_stuff.hpp	/^	inline tiled_objectgroup()$/;"	kind:f	class:tiled_objectgroup	access:public	signature:()
 tiled_objectgroup	tiled_object_class_stuff.hpp	/^	tiled_objectgroup( xml_node<>* node );$/;"	kind:p	class:tiled_objectgroup	access:public	signature:( xml_node<* node )
@@ -328,6 +359,50 @@ tiled_objectgroup::object_vec	tiled_object_class_stuff.hpp	/^	vector<tiled_objec
 tiled_objectgroup::tiled_objectgroup	tiled_object_class_stuff.cpp	/^tiled_objectgroup::tiled_objectgroup( xml_node<>* node )$/;"	kind:f	class:tiled_objectgroup	signature:( xml_node<* node )
 tiled_objectgroup::tiled_objectgroup	tiled_object_class_stuff.hpp	/^	inline tiled_objectgroup()$/;"	kind:f	class:tiled_objectgroup	access:public	signature:()
 tiled_objectgroup::tiled_objectgroup	tiled_object_class_stuff.hpp	/^	tiled_objectgroup( xml_node<>* node );$/;"	kind:p	class:tiled_objectgroup	access:public	signature:( xml_node<* node )
+tiled_sublevel	tiled_sublevel_class.cpp	/^tiled_sublevel::tiled_sublevel( const string& sublevel_file_name,$/;"	kind:f	class:tiled_sublevel	signature:( const string& sublevel_file_name, const string& s_output_prefix, sublevel& the_sublevel )
+tiled_sublevel	tiled_sublevel_class.hpp	/^	tiled_sublevel( const string& sublevel_file_name, $/;"	kind:p	class:tiled_sublevel	access:public	signature:( const string& sublevel_file_name, const string& s_output_prefix, sublevel& the_sublevel )
+tiled_sublevel	tiled_sublevel_class.hpp	/^class tiled_sublevel$/;"	kind:c
+tiled_sublevel::build_gid_maps_and_correct_objects	tiled_sublevel_class.cpp	/^void tiled_sublevel::build_gid_maps_and_correct_objects()$/;"	kind:f	class:tiled_sublevel	signature:()
+tiled_sublevel::build_gid_maps_and_correct_objects	tiled_sublevel_class.hpp	/^	void build_gid_maps_and_correct_objects();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
+tiled_sublevel::build_object_ptr_vec	tiled_sublevel_class.cpp	/^void tiled_sublevel::build_object_ptr_vec()$/;"	kind:f	class:tiled_sublevel	signature:()
+tiled_sublevel::build_object_ptr_vec	tiled_sublevel_class.hpp	/^	void build_object_ptr_vec();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
+tiled_sublevel::connect_warp_block_to_sublevel_entrance	tiled_sublevel_class.cpp	/^void tiled_sublevel::connect_warp_block_to_sublevel_entrance$/;"	kind:f	class:tiled_sublevel	signature:( tiled_object* obj_ptr, sprite_init_param_group& to_push )
+tiled_sublevel::connect_warp_block_to_sublevel_entrance	tiled_sublevel_class.hpp	/^	void connect_warp_block_to_sublevel_entrance( tiled_object* obj_ptr,$/;"	kind:p	class:tiled_sublevel	access:protected	signature:( tiled_object* obj_ptr, sprite_init_param_group& to_push )
+tiled_sublevel::debug_print	tiled_sublevel_class.cpp	/^void tiled_sublevel::debug_print()$/;"	kind:f	class:tiled_sublevel	signature:()
+tiled_sublevel::debug_print	tiled_sublevel_class.hpp	/^	void debug_print();$/;"	kind:p	class:tiled_sublevel	access:public	signature:()
+tiled_sublevel::debug_print_2	tiled_sublevel_class.hpp	/^	void debug_print_2();$/;"	kind:p	class:tiled_sublevel	access:public	signature:()
+tiled_sublevel::debug_print_gid_st_map	tiled_sublevel_class.cpp	/^void tiled_sublevel::debug_print_gid_st_map()$/;"	kind:f	class:tiled_sublevel	signature:()
+tiled_sublevel::debug_print_gid_st_map	tiled_sublevel_class.hpp	/^	void debug_print_gid_st_map();$/;"	kind:p	class:tiled_sublevel	access:public	signature:()
+tiled_sublevel::debug_print_gid_tileset_ptr_map	tiled_sublevel_class.cpp	/^void tiled_sublevel::debug_print_gid_tileset_ptr_map()$/;"	kind:f	class:tiled_sublevel	signature:()
+tiled_sublevel::debug_print_gid_tileset_ptr_map	tiled_sublevel_class.hpp	/^	void debug_print_gid_tileset_ptr_map();$/;"	kind:p	class:tiled_sublevel	access:public	signature:()
+tiled_sublevel::doc	tiled_sublevel_class.hpp	/^	xml_document<char> doc;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::file_was_opened	tiled_sublevel_class.hpp	/^	bool file_was_opened;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::generate_sublevel_cpp_file	tiled_sublevel_class.cpp	/^void tiled_sublevel::generate_sublevel_cpp_file()$/;"	kind:f	class:tiled_sublevel	signature:()
+tiled_sublevel::generate_sublevel_cpp_file	tiled_sublevel_class.hpp	/^	void generate_sublevel_cpp_file();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
+tiled_sublevel::generate_sublevel_header	tiled_sublevel_class.cpp	/^void tiled_sublevel::generate_sublevel_header()$/;"	kind:f	class:tiled_sublevel	signature:()
+tiled_sublevel::generate_sublevel_header	tiled_sublevel_class.hpp	/^	void generate_sublevel_header();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
+tiled_sublevel::generate_the_sublevel	tiled_sublevel_class.cpp	/^void tiled_sublevel::generate_the_sublevel()$/;"	kind:f	class:tiled_sublevel	signature:()
+tiled_sublevel::generate_the_sublevel	tiled_sublevel_class.hpp	/^	void generate_the_sublevel();$/;"	kind:p	class:tiled_sublevel	access:public	signature:()
+tiled_sublevel::gid_st_map	tiled_sublevel_class.hpp	/^	map< u32, sprite_type > gid_st_map;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::gid_tileset_ptr_map	tiled_sublevel_class.hpp	/^	map< u32, tiled_tileset* > gid_tileset_ptr_map;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::layer_vec	tiled_sublevel_class.hpp	/^	vector<tiled_layer> layer_vec;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::map_header	tiled_sublevel_class.hpp	/^	tiled_map_header map_header;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::object_ptr_vec	tiled_sublevel_class.hpp	/^	vector< vector<tiled_object*> > object_ptr_vec;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::objectgroup_vec	tiled_sublevel_class.hpp	/^	vector<tiled_objectgroup> objectgroup_vec;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::output_basename	tiled_sublevel_class.hpp	/^	string output_dirname, output_basename;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::output_dirname	tiled_sublevel_class.hpp	/^	string output_dirname, output_basename;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::output_prefix	tiled_sublevel_class.hpp	/^	inline const string output_prefix() const$/;"	kind:f	class:tiled_sublevel	access:protected	signature:() const
+tiled_sublevel::read_compressed_block_data_from_file	tiled_sublevel_class.cpp	/^void tiled_sublevel::read_compressed_block_data_from_file()$/;"	kind:f	class:tiled_sublevel	signature:()
+tiled_sublevel::read_compressed_block_data_from_file	tiled_sublevel_class.hpp	/^	void read_compressed_block_data_from_file();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
+tiled_sublevel::sublevel_str	tiled_sublevel_class.hpp	/^	string sublevel_str;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::the_sublevel_ptr	tiled_sublevel_class.hpp	/^	sublevel* the_sublevel_ptr;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::tiled_sublevel	tiled_sublevel_class.cpp	/^tiled_sublevel::tiled_sublevel( const string& sublevel_file_name,$/;"	kind:f	class:tiled_sublevel	signature:( const string& sublevel_file_name, const string& s_output_prefix, sublevel& the_sublevel )
+tiled_sublevel::tiled_sublevel	tiled_sublevel_class.hpp	/^	tiled_sublevel( const string& sublevel_file_name, $/;"	kind:p	class:tiled_sublevel	access:public	signature:( const string& sublevel_file_name, const string& s_output_prefix, sublevel& the_sublevel )
+tiled_sublevel::tileset_vec	tiled_sublevel_class.hpp	/^	vector<tiled_tileset> tileset_vec;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::warp_id_sle_id_map	tiled_sublevel_class.hpp	/^	map< u32, u32 > warp_id_sle_id_map;$/;"	kind:m	class:tiled_sublevel	access:public
+tiled_sublevel::write_uncompressed_block_data_to_file	tiled_sublevel_class.cpp	/^void tiled_sublevel::write_uncompressed_block_data_to_file()$/;"	kind:f	class:tiled_sublevel	signature:()
+tiled_sublevel::write_uncompressed_block_data_to_file	tiled_sublevel_class.hpp	/^	void write_uncompressed_block_data_to_file();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
+tiled_sublevel_class_hpp	tiled_sublevel_class.hpp	2;"	kind:d
 tiled_tileset	tiled_tileset_class.cpp	/^tiled_tileset::tiled_tileset( xml_node<>* node )$/;"	kind:f	class:tiled_tileset	signature:( xml_node<* node )
 tiled_tileset	tiled_tileset_class.hpp	/^	inline tiled_tileset()$/;"	kind:f	class:tiled_tileset	access:public	signature:()
 tiled_tileset	tiled_tileset_class.hpp	/^	tiled_tileset( xml_node<>* node );$/;"	kind:p	class:tiled_tileset	access:public	signature:( xml_node<* node )
@@ -342,19 +417,20 @@ tiled_tileset::tiled_tileset	tiled_tileset_class.cpp	/^tiled_tileset::tiled_tile
 tiled_tileset::tiled_tileset	tiled_tileset_class.hpp	/^	inline tiled_tileset()$/;"	kind:f	class:tiled_tileset	access:public	signature:()
 tiled_tileset::tiled_tileset	tiled_tileset_class.hpp	/^	tiled_tileset( xml_node<>* node );$/;"	kind:p	class:tiled_tileset	access:public	signature:( xml_node<* node )
 tiled_tileset_class_hpp	tiled_tileset_class.hpp	2;"	kind:d
-tileset_vec	tiled_level_class.hpp	/^	vector<tiled_tileset> tileset_vec;$/;"	kind:m	class:tiled_level	access:public
+tileset_vec	tiled_sublevel_class.hpp	/^	vector<tiled_tileset> tileset_vec;$/;"	kind:m	class:tiled_sublevel	access:public
 trunc_to_int	fixed24p8_class.hpp	/^	inline s32 trunc_to_int() const;$/;"	kind:p	class:fixed24p8	access:public	signature:() const
 trunc_to_int	fixed24p8_class.hpp	/^inline s32 fixed24p8::trunc_to_int() const$/;"	kind:f	class:fixed24p8	signature:() const
 type	block_stuff.hpp	/^	u16 type;$/;"	kind:m	class:block	access:public
-type	level_entrance_class.hpp	/^	level_entrance_type type;$/;"	kind:m	class:level_entrance	access:public
 type	sprite_level_data_stuff.hpp	/^	sprite_type type;$/;"	kind:m	class:sprite_init_param_group	access:public
+type	sublevel_entrance_class.hpp	/^	sublevel_entrance_type type;$/;"	kind:m	class:sublevel_entrance	access:public
 u16	misc_types.hpp	/^typedef uint16_t u16; typedef int16_t s16;$/;"	kind:t
 u32	misc_types.hpp	/^typedef uint32_t u32; typedef int32_t s32;$/;"	kind:t
 u64	misc_types.hpp	/^typedef uint64_t u64; typedef int64_t s64;$/;"	kind:t
 u8	misc_types.hpp	/^typedef uint8_t u8; typedef int8_t s8;$/;"	kind:t
 uint	misc_types.hpp	/^typedef unsigned int uint;$/;"	kind:t
-uncompressed_block_data_vec	level_class.hpp	/^	vector< vector<block> > uncompressed_block_data_vec;$/;"	kind:m	class:level	access:public
+uncompressed_block_data_vec	sublevel_class.hpp	/^	vector< vector<block> > uncompressed_block_data_vec;$/;"	kind:m	class:sublevel	access:public
 utility_funcs_hpp	utility_funcs.hpp	2;"	kind:d
+value	tiled_object_class_stuff.hpp	/^	string name, value;$/;"	kind:m	class:tiled_object_property	access:public
 vec2	vec2_class.hpp	/^	constexpr inline vec2( const fixed24p8& s_x, const fixed24p8& s_y )$/;"	kind:f	class:vec2	access:public	signature:( const fixed24p8& s_x, const fixed24p8& s_y )
 vec2	vec2_class.hpp	/^	constexpr inline vec2( const type& s_x, const type& s_y )$/;"	kind:f	class:vec2	access:public	signature:( const type& s_x, const type& s_y )
 vec2	vec2_class.hpp	/^	constexpr inline vec2( const vec2<fixed24p8>& to_copy )$/;"	kind:f	class:vec2	access:public	signature:( const vec2<fixed24p8>& to_copy )
@@ -397,9 +473,10 @@ vec2_u16	vec2_class.hpp	/^typedef vec2<u16> vec2_u16; typedef vec2<s16> vec2_s16
 vec2_u32	vec2_class.hpp	/^typedef vec2<u32> vec2_u32; typedef vec2<s32> vec2_s32;$/;"	kind:t
 vec2_u64	vec2_class.hpp	/^typedef vec2<u64> vec2_u64; typedef vec2<s64> vec2_s64;$/;"	kind:t
 vflip	tiled_object_class_stuff.hpp	/^	bool hflip, vflip;$/;"	kind:m	class:tiled_object	access:public
+warp_id_sle_id_map	tiled_sublevel_class.hpp	/^	map< u32, u32 > warp_id_sle_id_map;$/;"	kind:m	class:tiled_sublevel	access:public
 width	array_2d_helper_class.hpp	/^	u32 width() const$/;"	kind:f	class:array_2d_helper	access:public	signature:() const
-write_uncompressed_block_data_to_file	tiled_level_class.cpp	/^void tiled_level::write_uncompressed_block_data_to_file()$/;"	kind:f	class:tiled_level	signature:()
-write_uncompressed_block_data_to_file	tiled_level_class.hpp	/^	void write_uncompressed_block_data_to_file();$/;"	kind:p	class:tiled_level	access:protected	signature:()
+write_uncompressed_block_data_to_file	tiled_sublevel_class.cpp	/^void tiled_sublevel::write_uncompressed_block_data_to_file()$/;"	kind:f	class:tiled_sublevel	signature:()
+write_uncompressed_block_data_to_file	tiled_sublevel_class.hpp	/^	void write_uncompressed_block_data_to_file();$/;"	kind:p	class:tiled_sublevel	access:protected	signature:()
 x	vec2_class.hpp	/^	fixed24p8 x, y;$/;"	kind:m	class:vec2	access:public
 x	vec2_class.hpp	/^	type x, y;$/;"	kind:m	class:vec2	access:public
 y	vec2_class.hpp	/^	fixed24p8 x, y;$/;"	kind:m	class:vec2	access:public

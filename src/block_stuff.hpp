@@ -10,18 +10,71 @@ using namespace std;
 
 enum block_type
 {
+	// A graphics-less block that sprites are free to move through.
 	bt_air,
+	
+	// A block that looks like a wooden log.  It is indestructable, which
+	// is quite unlike real life wooden logs.
 	bt_log,
+	
+	// A wooden block without anything inside.  It is destroyed (that is,
+	// replaced with an air block) when strongly hit.
 	bt_wood,
+	
+	// A question mark block without anything inside.  It becomes an empty
+	// block upon being strongly hit.
 	bt_qmark,
+	
+	// A block with an exclamation point on it.  The purpose of these
+	// blocks is yet to be chosen, but I'm thinking that some kind of event
+	// will happen when one is strongly hit.
 	bt_exclam,
+	
+	// An empty block that is indestructible.  
 	bt_dud,
+	
+	// Wooden blocks with contents
+	bt_wood_with_bt_dud,
+	bt_wood_with_st_waffle,
+	bt_wood_with_st_muffin,
+	bt_wood_with_st_fire_muffin,
+	bt_wood_with_st_ice_muffin,
+	bt_wood_with_st_chocolate_muffin,
+	
+	// Question mark blocks with contents
+	//bt_qmark_with_bt_dud		// This is the same as bt_qmark.
+	bt_qmark_with_st_waffle,
+	bt_qmark_with_st_muffin,
+	bt_qmark_with_st_fire_muffin,
+	bt_qmark_with_st_ice_muffin,
+	bt_qmark_with_st_chocolate_muffin,
+	
+	// Grass/Dirt blocks
+	bt_grass_single,
+	
+	bt_grass_top_left,
+	bt_grass_top_middle,
+	bt_grass_top_right,
+	
+	bt_dirt_middle_left,
+	bt_dirt_middle_middle,
+	bt_dirt_middle_right,
+	
+	bt_dirt_bottom_left,
+	bt_dirt_bottom_middle,
+	bt_dirt_bottom_right,
+	
+	bt_grass_slope_135_degrees,
+	bt_grass_slope_45_degrees,
+	
+	bt_grass_in_slope_left,
+	bt_grass_in_slope_right,
 	
 	
 	// bt_count is the amount of block types.  It is automatically updated
 	// by the compiler.
 	bt_count,
-	
+
 } __attribute__((aligned(4)));
 
 

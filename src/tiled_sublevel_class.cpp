@@ -1,18 +1,18 @@
-#include "tiled_level_class.hpp"
+#include "tiled_sublevel_class.hpp"
 
 
 
-tiled_level::tiled_level( const string& level_file_name,
-	const string& s_output_prefix, level& the_level )
+tiled_sublevel::tiled_sublevel( const string& sublevel_file_name,
+	const string& s_output_prefix, sublevel& the_sublevel )
 {
 	output_dirname = dirname(strdup(s_output_prefix.c_str()));
 	output_basename = basename(strdup(s_output_prefix.c_str()));
 	
-	the_level_ptr = &the_level;
+	the_sublevel_ptr = &the_sublevel;
 	
-	fstream level_file( level_file_name, ios_base::in );
+	fstream sublevel_file( sublevel_file_name, ios_base::in );
 	
-	if ( !level_file.is_open() )
+	if ( !sublevel_file.is_open() )
 	{
 		file_was_opened = false;
 		return;
@@ -21,12 +21,12 @@ tiled_level::tiled_level( const string& level_file_name,
 	file_was_opened = true;
 	
 	
-	// Read the whole file into level_str
-	getline( level_file, level_str, '\0' );
+	// Read the whole file into sublevel_str
+	getline( sublevel_file, sublevel_str, '\0' );
 	
-	level_file.close();
+	sublevel_file.close();
 	
-	doc.parse<0>( const_cast<char*>( level_str.c_str() ) );
+	doc.parse<0>( const_cast<char*>( sublevel_str.c_str() ) );
 	
 	map_header = tiled_map_header( doc.first_node() );
 	
@@ -56,41 +56,42 @@ tiled_level::tiled_level( const string& level_file_name,
 }
 
 
-void tiled_level::generate_the_level()
+void tiled_sublevel::generate_the_sublevel()
 {
 	// General error detection and response (if necessary).
 	if ( layer_vec.size() != 1 )
 	{
-		cout << "Error!  EXACTLY ONE Tiled layer is required!\n";
+		cout << "Error!  EXACTLY ONE Tiled tile layer is required!\n";
 		exit(1);
 	}
 	
-	if ( layer_vec[0].size_2d.x > level::max_size_2d.x )
+	if ( layer_vec[0].size_2d.x > sublevel::max_size_2d.x )
 	{
 		cout << "Error!  Levels are not permitted to have a width of "
-			<< "more than " << level::max_size_2d.x << "blocks!  "
+			<< "more than " << sublevel::max_size_2d.x << "blocks!  "
 			<< "Exiting....\n";
 		exit(1);
 	}
 	
-	if ( layer_vec[0].size_2d.y != level::max_size_2d.y )
+	if ( layer_vec[0].size_2d.y != sublevel::max_size_2d.y )
 	{
 		cout << "Error!  Levels are required to have a height of EXACTLY " 
-			<< level::max_size_2d.y << " blocks!  "
+			<< sublevel::max_size_2d.y << " blocks!  "
 			<< "Exiting....\n";
 		exit(1);
 	}
 	
 	
-	the_level_ptr->real_size_2d = layer_vec[0].size_2d;
+	the_sublevel_ptr->real_size_2d = layer_vec[0].size_2d;
 	
-	// Generate the level's block data (both compressed and uncompressed)
+	// Generate the sublevel's block data (both compressed and
+	// uncompressed)
 	u32 next_persistent_block_data_index = 1;
 	
 	for ( u32 j=0; j<layer_vec[0].tile_ids.size(); ++j )
 	{
 		vector<u32>& layer_col = layer_vec[0].tile_ids[j];
-		vector<block>& bd_col = the_level_ptr
+		vector<block>& bd_col = the_sublevel_ptr
 			->uncompressed_block_data_vec[j];
 		
 		
@@ -130,6 +131,60 @@ void tiled_level::generate_the_level()
 		}
 	}
 	
+	
+	// Generate the sublevel's vector of sprite_init_param_group's
+	for ( u32 j=0; j<object_ptr_vec.size(); ++j )
+	{
+		for ( u32 i=0; i<object_ptr_vec[j].size(); ++i )
+		{
+			tiled_object* obj_ptr = object_ptr_vec[j][i];
+			if ( obj_ptr != NULL )
+			{
+				sprite_init_param_group to_push;
+				to_push.type = obj_ptr->the_sprite_type;
+				to_push.initial_block_grid_x_coord 
+					= obj_ptr->real_block_grid_pos.x;
+				to_push.initial_block_grid_y_coord
+					= obj_ptr->real_block_grid_pos.y;
+				to_push.facing_right = ( obj_ptr->hflip ) ? false : true;
+				
+				to_push.extra_param_0 = to_push.extra_param_1 
+					= to_push.extra_param_2 = to_push.extra_param_3 = 0;
+				
+				// If we're dealing with an st_warp_block, then generate
+				// a sublevel_entrance
+				if ( to_push.type >= st_warp_block_0 
+					&& to_push.type <= st_warp_block_15 )
+				{
+					connect_warp_block_to_sublevel_entrance( obj_ptr, 
+						to_push );
+					//cout << to_push.type - st_warp_block_0 << endl;
+				}
+				
+				the_sublevel_ptr->sprite_ipg_vec.push_back(to_push);
+			}
+		}
+	}
+	
+	//cout << endl;
+	//
+	//for ( pair< const u32, u32 >& the_pair : warp_id_sle_id_map )
+	//{
+	//	cout << the_pair.first << " " << the_pair.second << " "
+	//		<< the_sublevel_ptr->sublevel_entrance_vec.at(the_pair.second)
+	//		.in_sublevel_pos.x.trunc_to_int() << " "
+	//		<< the_sublevel_ptr->sublevel_entrance_vec.at(the_pair.second)
+	//		.in_sublevel_pos.y.trunc_to_int() << endl;
+	//}
+	//cout << endl;
+	//
+	//for ( sublevel_entrance& the_sle 
+	//	: the_sublevel_ptr->sublevel_entrance_vec )
+	//{
+	//	cout << the_sle.in_sublevel_pos.x.trunc_to_int() << " "
+	//		<< the_sle.in_sublevel_pos.y.trunc_to_int() << endl;
+	//}
+	
 	write_uncompressed_block_data_to_file();
 	
 	// Run gbalzss
@@ -148,29 +203,8 @@ void tiled_level::generate_the_level()
 	
 	read_compressed_block_data_from_file();
 	
-	// Generate the level's vector of sprite_init_param_group's
-	for ( u32 j=0; j<object_ptr_vec.size(); ++j )
-	{
-		for ( u32 i=0; i<object_ptr_vec[j].size(); ++i )
-		{
-			tiled_object* obj_ptr = object_ptr_vec[j][i];
-			if ( obj_ptr != NULL )
-			{
-				sprite_init_param_group to_push;
-				to_push.type = obj_ptr->the_sprite_type;
-				to_push.initial_block_grid_x_coord 
-					= obj_ptr->real_block_grid_pos.x;
-				to_push.initial_block_grid_y_coord
-					= obj_ptr->real_block_grid_pos.y;
-				to_push.facing_right = ( obj_ptr->hflip ) ? false : true;
-				
-				the_level_ptr->sprite_ipg_vec.push_back(to_push);
-			}
-		}
-	}
-	
-	generate_level_header();
-	generate_level_cpp_file();
+	generate_sublevel_header();
+	generate_sublevel_cpp_file();
 	
 	// Remove the temporary files
 	const string clean_up_command = "rm " 
@@ -182,12 +216,12 @@ void tiled_level::generate_the_level()
 	cout << "Running this command:  " << clean_up_command << endl;
 	system(clean_up_command.c_str());
 	
-	cout << "Parent is exiting (2)!\n";
+	//cout << "Parent is exiting (2)!\n";
 	
 }
 
 
-void tiled_level::write_uncompressed_block_data_to_file()
+void tiled_sublevel::write_uncompressed_block_data_to_file()
 {
 	string output_file_name = get_uncompressed_block_data_file_name
 		( output_dirname, output_basename );
@@ -205,10 +239,10 @@ void tiled_level::write_uncompressed_block_data_to_file()
 	}
 	
 	for ( u32 j=0; 
-		j<the_level_ptr->uncompressed_block_data_vec.size(); 
+		j<the_sublevel_ptr->uncompressed_block_data_vec.size(); 
 		++j )
 	{
-		vector<block>& bd_col = the_level_ptr
+		vector<block>& bd_col = the_sublevel_ptr
 			->uncompressed_block_data_vec[j];
 		
 		for ( u32 i=0; i<bd_col.size(); ++i )
@@ -221,7 +255,7 @@ void tiled_level::write_uncompressed_block_data_to_file()
 	output_file.close();
 }
 
-void tiled_level::read_compressed_block_data_from_file()
+void tiled_sublevel::read_compressed_block_data_from_file()
 {
 	string input_file_name = get_compressed_block_data_file_name
 		( output_dirname, output_basename );
@@ -268,27 +302,30 @@ void tiled_level::read_compressed_block_data_from_file()
 			| ( compressed_block_data_as_u8s.at( i + 1 ) << 8 )
 			| compressed_block_data_as_u8s.at( i + 0 );
 		
-		the_level_ptr->compressed_block_data_vec.push_back(the_u32);
+		the_sublevel_ptr->compressed_block_data_vec.push_back(the_u32);
 	}
 	
 }
 
-void tiled_level::generate_level_header()
+void tiled_sublevel::generate_sublevel_header()
 {
 	fstream header_file( output_prefix() + string(".hpp"), ios_base::out );
 	
 	header_file << "#ifndef " << output_basename << "_hpp\n"
 		<< "#define " << output_basename << "_hpp\n\n\n"
-		<< "#include \"../game_engine_stuff/level_class.hpp\"\n";
+		<< "#include \"../game_engine_stuff/level_stuff/"
+		<< "sublevel_class.hpp\"\n"
+		<< "#include \"../game_engine_stuff/level_stuff/"
+		<< "sprite_level_data_stuff.hpp\"\n";
 	
 	header_file << "\n\n";
 	
-	header_file << "extern const level< "
-		<< the_level_ptr->compressed_block_data_vec.size() << ", "
-		<< the_level_ptr->real_size_2d.x << ", " 
-		<< the_level_ptr->real_size_2d.y << ", "
-		<< the_level_ptr->sprite_ipg_vec.size() << ", "
-		<< the_level_ptr->level_entrance_vec.size() << " > "
+	header_file << "extern const sublevel< "
+		<< the_sublevel_ptr->compressed_block_data_vec.size() << ", "
+		<< the_sublevel_ptr->real_size_2d.x << ", " 
+		<< the_sublevel_ptr->real_size_2d.y << ", "
+		<< the_sublevel_ptr->sprite_ipg_vec.size() << ", "
+		<< the_sublevel_ptr->sublevel_entrance_vec.size() << " > "
 		<< output_basename << ";\n\n";
 	
 	header_file << "\n";
@@ -297,19 +334,19 @@ void tiled_level::generate_level_header()
 	
 }
 
-void tiled_level::generate_level_cpp_file()
+void tiled_sublevel::generate_sublevel_cpp_file()
 {
 	fstream cpp_file( output_prefix() + string(".thumb.cpp"), 
 		ios_base::out );
 	
 	cpp_file << "#include \"" << output_basename << ".hpp\"\n\n\n";
 	
-	cpp_file << "const level< "
-		<< the_level_ptr->compressed_block_data_vec.size() << ", "
-		<< the_level_ptr->real_size_2d.x << ", " 
-		<< the_level_ptr->real_size_2d.y << ", "
-		<< the_level_ptr->sprite_ipg_vec.size() << ", "
-		<< the_level_ptr->level_entrance_vec.size () << " > "
+	cpp_file << "const sublevel< "
+		<< the_sublevel_ptr->compressed_block_data_vec.size() << ", "
+		<< the_sublevel_ptr->real_size_2d.x << ", " 
+		<< the_sublevel_ptr->real_size_2d.y << ", "
+		<< the_sublevel_ptr->sprite_ipg_vec.size() << ", "
+		<< the_sublevel_ptr->sublevel_entrance_vec.size () << " > "
 		<< output_basename << "\n"
 		<< "= {\n";
 	
@@ -318,8 +355,8 @@ void tiled_level::generate_level_cpp_file()
 	cpp_file << "\t{\n";
 	
 	u32 counter = 0;
-	for ( auto iter=the_level_ptr->compressed_block_data_vec.begin();
-		iter!=the_level_ptr->compressed_block_data_vec.end();
+	for ( auto iter=the_sublevel_ptr->compressed_block_data_vec.begin();
+		iter!=the_sublevel_ptr->compressed_block_data_vec.end();
 		++iter )
 	{
 		//cpp_file << hex << "\t\t0x" << *iter << dec << ",\n";
@@ -342,14 +379,14 @@ void tiled_level::generate_level_cpp_file()
 		++counter;
 	}
 	
-	cpp_file << "\t},\n\t\n";
+	cpp_file << "\n\t},\n\t\n";
 	
 	
 	// Build the array of sprite_init_param_group's
 	cpp_file << "\t{\n";
 	
-	for ( auto iter=the_level_ptr->sprite_ipg_vec.begin();
-		iter!=the_level_ptr->sprite_ipg_vec.end();
+	for ( auto iter=the_sublevel_ptr->sprite_ipg_vec.begin();
+		iter!=the_sublevel_ptr->sprite_ipg_vec.end();
 		++iter )
 	{
 		cpp_file << "\t\t{ ";
@@ -369,19 +406,45 @@ void tiled_level::generate_level_cpp_file()
 			<< iter->initial_block_grid_y_coord << ", " 
 			<< ( iter->facing_right ? "true" : "false" );
 		
+		// Don't clutter the sprite_init_param_group's that have only
+		// zeroes as extra parameters.
+		if ( !( iter->extra_param_0 == 0 && iter->extra_param_1 == 0
+			&& iter->extra_param_2 == 0 && iter->extra_param_3 == 0 ) )
+		{
+			cpp_file << ", " << iter->extra_param_0 << ", " 
+				<< iter->extra_param_1 << ", " 
+				<< iter->extra_param_2 << ", " 
+				<< iter->extra_param_3;
+		}
+		
 		
 		cpp_file << " },\n";
 	}
 	
-	cpp_file << "\t},\n";
+	cpp_file << "\t},\n\t\n";
 	
-	// Build hte array of 
+	// Build the array of sublevel_entrance's
+	cpp_file << "\t{\n";
+	
+	for ( sublevel_entrance& the_sle 
+		: the_sublevel_ptr->sublevel_entrance_vec )
+	{
+		//cpp_file << "\t\t{ " << get_sle_name_debug(the_sle.type)
+		//	<< hex << ", { 0x" << the_sle.in_sublevel_pos.x.data << ", 0x"
+		//	<< the_sle.in_sublevel_pos.y.data << " } },\n" << dec;
+		cpp_file << "\t\t{ " << get_sle_name_debug(the_sle.type)
+			<< hex << ", vec2_f24p8( {0x" << the_sle.in_sublevel_pos.x.data
+			<< "}, {0x" << the_sle.in_sublevel_pos.y.data << "} ) },\n" 
+			<< dec;
+	}
+	
+	cpp_file << "\t},\n";
 	
 	
 	cpp_file << "};\n\n\n";
 }
 
-void tiled_level::build_gid_maps_and_correct_objects()
+void tiled_sublevel::build_gid_maps_and_correct_objects()
 {
 	// Build the maps
 	for ( auto iter=tileset_vec.begin();
@@ -437,7 +500,7 @@ void tiled_level::build_gid_maps_and_correct_objects()
 }
 
 
-void tiled_level::build_object_ptr_vec()
+void tiled_sublevel::build_object_ptr_vec()
 {
 	
 	// Allocate the vertical stuff.
@@ -472,8 +535,9 @@ void tiled_level::build_object_ptr_vec()
 			{
 				cout << "Warning!  More than one Tiled object per block "
 					<< "grid coordinate is not permitted!\n";
-				cout << "The following Tiled object has been rejected:  ";
-				obj_iter->debug_print();
+				//cout << "The following Tiled object has been rejected:  ";
+				//obj_iter->debug_print_short();
+				obj_iter->reject();
 				cout << endl;
 			}
 			
@@ -483,8 +547,62 @@ void tiled_level::build_object_ptr_vec()
 	
 }
 
+void tiled_sublevel::connect_warp_block_to_sublevel_entrance
+	( tiled_object* obj_ptr, sprite_init_param_group& to_push )
+{
+	if ( warp_id_sle_id_map.count(to_push.type - st_warp_block_0) )
+	{
+		cout << "Error!  More than one st_warp_block with the same"
+			<< " number in a sublevel is not permitted!\n";
+		obj_ptr->reject_and_exit();
+	}
+	
+	bool found_bdest = false;
+	for ( auto prop_iter=obj_ptr->property_vec.begin();
+		prop_iter!=obj_ptr->property_vec.end();
+		++prop_iter )
+	{
+		// Destination warp block
+		if ( prop_iter->name == string("bdest") )
+		{
+			found_bdest = true;
+			
+			stringstream value_sstm;
+			value_sstm << prop_iter->value;
+			
+			u32 bdest_value;
+			value_sstm >> bdest_value;
+			
+			
+			the_sublevel_ptr->sublevel_entrance_vec.push_back
+				({ sle_from_warp_block, vec2_f24p8
+				( obj_ptr->real_block_grid_pos.x << fixed24p8::shift,
+				obj_ptr->real_block_grid_pos.y << fixed24p8::shift ) });
+			
+			//warp_id_sle_id_map[bdest_value] 
+			//	= the_sublevel_ptr->sublevel_entrance_vec.size() - 1;
+			warp_id_sle_id_map[to_push.type - st_warp_block_0]
+				= the_sublevel_ptr->sublevel_entrance_vec.size() - 1;
+			
+			to_push.extra_param_0 
+				= the_sublevel_ptr->sublevel_entrance_vec.size() - 1;
+			
+			// Only process a single property
+			break;
+		}
+	}
+	
+	if (!found_bdest)
+	{
+		cout << "Error!  st_warp_block's are REQUIRED to have a "
+			<< "destination st_warp_block, specified by a property called "
+			<< "\"bdest\" in Tiled.\n";
+		obj_ptr->reject_and_exit();
+	}
+}
 
-void tiled_level::debug_print()
+
+void tiled_sublevel::debug_print()
 {
 	
 	map_header.debug_print();
@@ -513,7 +631,7 @@ void tiled_level::debug_print()
 	}
 }
 
-void tiled_level::debug_print_gid_st_map()
+void tiled_sublevel::debug_print_gid_st_map()
 {
 	for ( auto iter=tileset_vec.begin();
 		iter!=tileset_vec.end();
@@ -530,7 +648,7 @@ void tiled_level::debug_print_gid_st_map()
 	
 }
 
-void tiled_level::debug_print_gid_tileset_ptr_map()
+void tiled_sublevel::debug_print_gid_tileset_ptr_map()
 {
 	for ( auto iter=tileset_vec.begin();
 		iter!=tileset_vec.end();
