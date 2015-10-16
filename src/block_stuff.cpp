@@ -15,9 +15,9 @@ namespace block_stuff
 		// is, replaced with an air block) when strongly hit.
 		{ "bt_wood", false },
 		
-		// A question mark block without anything inside.  It becomes an
-		// empty block upon being strongly hit.
-		{ "bt_qmark", false },
+		// A block with eyes without anything inside.  It becomes an empty
+		// block upon being strongly hit.
+		{ "bt_eyes", false },
 		
 		// A block with an exclamation point on it.  The purpose of these
 		// blocks is yet to be chosen, but I'm thinking that some kind of
@@ -35,12 +35,12 @@ namespace block_stuff
 		{ "bt_wood_with_st_ice_muffin", true },
 		{ "bt_wood_with_st_chocolate_muffin", true },
 		
-		// Question mark blocks with contents
-		{ "bt_qmark_with_st_waffle", true },
-		{ "bt_qmark_with_st_muffin", true },
-		{ "bt_qmark_with_st_fire_muffin", true },
-		{ "bt_qmark_with_st_ice_muffin", true },
-		{ "bt_qmark_with_st_chocolate_muffin", true },
+		// Eyes blocks with contents
+		{ "bt_eyes_with_st_waffle", true },
+		{ "bt_eyes_with_st_muffin", true },
+		{ "bt_eyes_with_st_fire_muffin", true },
+		{ "bt_eyes_with_st_ice_muffin", true },
+		{ "bt_eyes_with_st_chocolate_muffin", true },
 		
 		
 		// Grass/Dirt blocks

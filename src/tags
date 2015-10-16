@@ -47,6 +47,12 @@ bt_dirt_middle_middle	block_stuff.hpp	/^	bt_dirt_middle_middle,$/;"	kind:e	enum:
 bt_dirt_middle_right	block_stuff.hpp	/^	bt_dirt_middle_right,$/;"	kind:e	enum:block_type
 bt_dud	block_stuff.hpp	/^	bt_dud,$/;"	kind:e	enum:block_type
 bt_exclam	block_stuff.hpp	/^	bt_exclam,$/;"	kind:e	enum:block_type
+bt_eyes	block_stuff.hpp	/^	bt_eyes,$/;"	kind:e	enum:block_type
+bt_eyes_with_st_chocolate_muffin	block_stuff.hpp	/^	bt_eyes_with_st_chocolate_muffin,$/;"	kind:e	enum:block_type
+bt_eyes_with_st_fire_muffin	block_stuff.hpp	/^	bt_eyes_with_st_fire_muffin,$/;"	kind:e	enum:block_type
+bt_eyes_with_st_ice_muffin	block_stuff.hpp	/^	bt_eyes_with_st_ice_muffin,$/;"	kind:e	enum:block_type
+bt_eyes_with_st_muffin	block_stuff.hpp	/^	bt_eyes_with_st_muffin,$/;"	kind:e	enum:block_type
+bt_eyes_with_st_waffle	block_stuff.hpp	/^	bt_eyes_with_st_waffle,$/;"	kind:e	enum:block_type
 bt_grass_in_slope_left	block_stuff.hpp	/^	bt_grass_in_slope_left,$/;"	kind:e	enum:block_type
 bt_grass_in_slope_right	block_stuff.hpp	/^	bt_grass_in_slope_right,$/;"	kind:e	enum:block_type
 bt_grass_single	block_stuff.hpp	/^	bt_grass_single,$/;"	kind:e	enum:block_type
@@ -58,12 +64,6 @@ bt_grass_top_right	block_stuff.hpp	/^	bt_grass_top_right,$/;"	kind:e	enum:block_
 bt_has_persistent_data	block_stuff.hpp	/^	inline bool bt_has_persistent_data( block_type the_block_type )$/;"	kind:f	namespace:block_stuff	signature:( block_type the_block_type )
 bt_log	block_stuff.hpp	/^	bt_log,$/;"	kind:e	enum:block_type
 bt_name_and_has_persistent_data_vec	block_stuff.cpp	/^	vector< pair< string, bool > > bt_name_and_has_persistent_data_vec$/;"	kind:m	namespace:block_stuff	file:
-bt_qmark	block_stuff.hpp	/^	bt_qmark,$/;"	kind:e	enum:block_type
-bt_qmark_with_st_chocolate_muffin	block_stuff.hpp	/^	bt_qmark_with_st_chocolate_muffin,$/;"	kind:e	enum:block_type
-bt_qmark_with_st_fire_muffin	block_stuff.hpp	/^	bt_qmark_with_st_fire_muffin,$/;"	kind:e	enum:block_type
-bt_qmark_with_st_ice_muffin	block_stuff.hpp	/^	bt_qmark_with_st_ice_muffin,$/;"	kind:e	enum:block_type
-bt_qmark_with_st_muffin	block_stuff.hpp	/^	bt_qmark_with_st_muffin,$/;"	kind:e	enum:block_type
-bt_qmark_with_st_waffle	block_stuff.hpp	/^	bt_qmark_with_st_waffle,$/;"	kind:e	enum:block_type
 bt_unknown_str	block_stuff.cpp	/^	const string bt_unknown_str = string("bt_unknown");$/;"	kind:m	namespace:block_stuff	file:
 bt_wood	block_stuff.hpp	/^	bt_wood,$/;"	kind:e	enum:block_type
 bt_wood_with_bt_dud	block_stuff.hpp	/^	bt_wood_with_bt_dud,$/;"	kind:e	enum:block_type

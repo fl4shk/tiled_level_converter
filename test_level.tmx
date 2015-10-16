@@ -76,7 +76,7 @@
     <property name="bdest" value="0"/>
    </properties>
   </object>
-  <object id="195" gid="108" x="944" y="496" width="16" height="16">
+  <object id="195" gid="108" x="16" y="496" width="16" height="16">
    <properties>
     <property name="bdest" value="0"/>
    </properties>
