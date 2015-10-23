@@ -406,16 +406,26 @@ void tiled_sublevel::generate_sublevel_cpp_file()
 			<< iter->initial_block_grid_y_coord << ", " 
 			<< ( iter->facing_right ? "true" : "false" );
 		
-		// Don't clutter the sprite_init_param_group's that have only
-		// zeroes as extra parameters.
-		if ( !( iter->extra_param_0 == 0 && iter->extra_param_1 == 0
-			&& iter->extra_param_2 == 0 && iter->extra_param_3 == 0 ) )
-		{
-			cpp_file << ", " << iter->extra_param_0 << ", " 
-				<< iter->extra_param_1 << ", " 
-				<< iter->extra_param_2 << ", " 
-				<< iter->extra_param_3;
-		}
+		
+		
+		// This had to be changed to make the Sherwin's Adventure code
+		// compile with the OUTDATED version of arm-none-eabi- prefixed GCC
+		// and Binutils that are included in devkitARM
+		//// Don't clutter the sprite_init_param_group's that have only
+		//// zeroes as extra parameters.
+		//if ( !( iter->extra_param_0 == 0 && iter->extra_param_1 == 0
+		//	&& iter->extra_param_2 == 0 && iter->extra_param_3 == 0 ) )
+		//{
+		//	cpp_file << ", " << iter->extra_param_0 << ", " 
+		//		<< iter->extra_param_1 << ", " 
+		//		<< iter->extra_param_2 << ", " 
+		//		<< iter->extra_param_3;
+		//}
+		
+		cpp_file << ", " << iter->extra_param_0 << ", " 
+			<< iter->extra_param_1 << ", " 
+			<< iter->extra_param_2 << ", " 
+			<< iter->extra_param_3;
 		
 		
 		cpp_file << " },\n";

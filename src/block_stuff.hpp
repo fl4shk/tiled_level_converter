@@ -27,7 +27,7 @@ enum block_type
 	
 	// A block with an exclamation point on it.  The purpose of these
 	// blocks is yet to be chosen, but I'm thinking that some kind of event
-	// will happen when one is strongly hit.
+	// will eventually happen when one is strongly hit.
 	bt_exclam,
 	
 	// An empty block that is indestructible.  
@@ -65,8 +65,8 @@ enum block_type
 	bt_dirt_bottom_middle,
 	bt_dirt_bottom_right,
 	
-	bt_grass_slope_135_degrees,
 	bt_grass_slope_45_degrees,
+	bt_grass_slope_135_degrees,
 	
 	bt_grass_in_slope_left,
 	bt_grass_in_slope_right,

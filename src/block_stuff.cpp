@@ -58,8 +58,8 @@ namespace block_stuff
 		{ "bt_dirt_bottom_middle", false },
 		{ "bt_dirt_bottom_right", false },
 		
-		{ "bt_grass_slope_135_degrees", false },
 		{ "bt_grass_slope_45_degrees", false },
+		{ "bt_grass_slope_135_degrees", false },
 		
 		{ "bt_grass_in_slope_left", false },
 		{ "bt_grass_in_slope_right", false },
