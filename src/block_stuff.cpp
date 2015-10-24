@@ -58,9 +58,21 @@ namespace block_stuff
 		{ "bt_dirt_bottom_middle", false },
 		{ "bt_dirt_bottom_right", false },
 		
-		{ "bt_grass_slope_45_degrees", false },
-		{ "bt_grass_slope_135_degrees", false },
+		// 45 degree angle slope
+		{ "bt_grass_slope_p16_p16", false },
 		
+		// 135 degree angle slope
+		{ "bt_grass_slope_n16_p16", false },
+		
+		// Approximately 26.57 degrees angle slope, with two blocks
+		{ "bt_grass_slope_p32_p16_short", false },
+		{ "bt_grass_slope_p32_p16_tall", false },
+		
+		// Approximately 153.43 degrees angle slope, with two blocks
+		{ "bt_grass_slope_n32_p16_tall", false },
+		{ "bt_grass_slope_n32_p16_short", false },
+		
+		// These two blocks are for decoration
 		{ "bt_grass_in_slope_left", false },
 		{ "bt_grass_in_slope_right", false },
 		

@@ -56,8 +56,12 @@ bt_eyes_with_st_waffle	block_stuff.hpp	/^	bt_eyes_with_st_waffle,$/;"	kind:e	enu
 bt_grass_in_slope_left	block_stuff.hpp	/^	bt_grass_in_slope_left,$/;"	kind:e	enum:block_type
 bt_grass_in_slope_right	block_stuff.hpp	/^	bt_grass_in_slope_right,$/;"	kind:e	enum:block_type
 bt_grass_single	block_stuff.hpp	/^	bt_grass_single,$/;"	kind:e	enum:block_type
-bt_grass_slope_135_degrees	block_stuff.hpp	/^	bt_grass_slope_135_degrees,$/;"	kind:e	enum:block_type
-bt_grass_slope_45_degrees	block_stuff.hpp	/^	bt_grass_slope_45_degrees,$/;"	kind:e	enum:block_type
+bt_grass_slope_n16_p16	block_stuff.hpp	/^	bt_grass_slope_n16_p16,$/;"	kind:e	enum:block_type
+bt_grass_slope_n32_p16_short	block_stuff.hpp	/^	bt_grass_slope_n32_p16_short,$/;"	kind:e	enum:block_type
+bt_grass_slope_n32_p16_tall	block_stuff.hpp	/^	bt_grass_slope_n32_p16_tall,$/;"	kind:e	enum:block_type
+bt_grass_slope_p16_p16	block_stuff.hpp	/^	bt_grass_slope_p16_p16,$/;"	kind:e	enum:block_type
+bt_grass_slope_p32_p16_short	block_stuff.hpp	/^	bt_grass_slope_p32_p16_short,$/;"	kind:e	enum:block_type
+bt_grass_slope_p32_p16_tall	block_stuff.hpp	/^	bt_grass_slope_p32_p16_tall,$/;"	kind:e	enum:block_type
 bt_grass_top_left	block_stuff.hpp	/^	bt_grass_top_left,$/;"	kind:e	enum:block_type
 bt_grass_top_middle	block_stuff.hpp	/^	bt_grass_top_middle,$/;"	kind:e	enum:block_type
 bt_grass_top_right	block_stuff.hpp	/^	bt_grass_top_right,$/;"	kind:e	enum:block_type
