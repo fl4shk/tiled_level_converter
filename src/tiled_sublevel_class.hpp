@@ -51,6 +51,7 @@ public:		// variables
 	
 	sublevel* the_sublevel_ptr;
 	
+	
 public:		// functions
 	tiled_sublevel( const string& sublevel_file_name, 
 		const string& s_output_prefix, sublevel& the_sublevel );
@@ -70,8 +71,12 @@ protected:		// functions
 	void build_gid_maps_and_correct_objects();
 	
 	void build_object_ptr_vec();
-	void connect_warp_block_to_sublevel_entrance( tiled_object* obj_ptr,
+	//void connect_warp_block_to_sublevel_entrance( tiled_object* obj_ptr,
+	//	sprite_init_param_group& to_push );
+	void generate_sublevel_entrance_using_warp_block( tiled_object* obj_ptr,
 		sprite_init_param_group& to_push );
+	void connect_warp_blocks_to_sublevel_entrances();
+	
 	//void build_warp_block_extra_params( tiled_object* obj_ptr, 
 	//	sprite_init_param_group& to_push );
 	

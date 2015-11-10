@@ -132,6 +132,13 @@ void tiled_sublevel::generate_the_sublevel()
 	}
 	
 	
+	for ( u32 i=0; i<st_warp_block_15 - st_warp_block_0 + 1; ++i )
+	{
+		the_sublevel_ptr->sublevel_entrance_vec.push_back
+			(sublevel_entrance());
+	}
+	cout << the_sublevel_ptr->sublevel_entrance_vec.size() << endl;
+	
 	// Generate the sublevel's vector of sprite_init_param_group's
 	for ( u32 j=0; j<object_ptr_vec.size(); ++j )
 	{
@@ -156,8 +163,10 @@ void tiled_sublevel::generate_the_sublevel()
 				if ( to_push.type >= st_warp_block_0 
 					&& to_push.type <= st_warp_block_15 )
 				{
-					connect_warp_block_to_sublevel_entrance( obj_ptr, 
+					generate_sublevel_entrance_using_warp_block( obj_ptr, 
 						to_push );
+					//generate_sublevel_entrance_using_warp_block( obj_ptr, 
+					//	to_push );
 					//cout << to_push.type - st_warp_block_0 << endl;
 				}
 				
@@ -165,6 +174,10 @@ void tiled_sublevel::generate_the_sublevel()
 			}
 		}
 	}
+	
+	connect_warp_blocks_to_sublevel_entrances();
+	
+	
 	
 	//cout << endl;
 	//
@@ -557,7 +570,7 @@ void tiled_sublevel::build_object_ptr_vec()
 	
 }
 
-void tiled_sublevel::connect_warp_block_to_sublevel_entrance
+void tiled_sublevel::generate_sublevel_entrance_using_warp_block
 	( tiled_object* obj_ptr, sprite_init_param_group& to_push )
 {
 	static constexpr u32 num_pixels_per_block_row_or_col = 16;
@@ -585,27 +598,34 @@ void tiled_sublevel::connect_warp_block_to_sublevel_entrance
 			u32 bdest_value;
 			value_sstm >> bdest_value;
 			
-			
 			//the_sublevel_ptr->sublevel_entrance_vec.push_back
 			//	({ sle_from_warp_block, vec2_f24p8
-			//	( obj_ptr->real_block_grid_pos.x << fixed24p8::shift,
-			//	obj_ptr->real_block_grid_pos.y << fixed24p8::shift ) });
-			the_sublevel_ptr->sublevel_entrance_vec.push_back
-				({ sle_from_warp_block, vec2_f24p8
+			//	( ( num_pixels_per_block_row_or_col 
+			//	* obj_ptr->real_block_grid_pos.x ) 
+			//	<< fixed24p8::shift,
+			//	( num_pixels_per_block_row_or_col
+			//	* obj_ptr->real_block_grid_pos.y ) 
+			//	<< fixed24p8::shift ) });
+			
+			the_sublevel_ptr->sublevel_entrance_vec[to_push.type 
+				- st_warp_block_0] = { sle_from_warp_block, vec2_f24p8
 				( ( num_pixels_per_block_row_or_col 
 				* obj_ptr->real_block_grid_pos.x ) 
 				<< fixed24p8::shift,
 				( num_pixels_per_block_row_or_col
 				* obj_ptr->real_block_grid_pos.y ) 
-				<< fixed24p8::shift ) });
+				<< fixed24p8::shift ) };
 			
 			//warp_id_sle_id_map[bdest_value] 
 			//	= the_sublevel_ptr->sublevel_entrance_vec.size() - 1;
+			//warp_id_sle_id_map[to_push.type - st_warp_block_0]
+			//	= the_sublevel_ptr->sublevel_entrance_vec.size() - 1;
 			warp_id_sle_id_map[to_push.type - st_warp_block_0]
-				= the_sublevel_ptr->sublevel_entrance_vec.size() - 1;
+				= bdest_value;
 			
-			to_push.extra_param_0 
-				= the_sublevel_ptr->sublevel_entrance_vec.size() - 1;
+			//to_push.extra_param_0 = bdest_value;
+			//to_push.extra_param_0 
+			//	= the_sublevel_ptr->sublevel_entrance_vec.size() - 1;
 			
 			// Only process a single property
 			break;
@@ -619,6 +639,25 @@ void tiled_sublevel::connect_warp_block_to_sublevel_entrance
 			<< "\"bdest\" in Tiled.\n";
 		obj_ptr->reject_and_exit();
 	}
+}
+
+void tiled_sublevel::connect_warp_blocks_to_sublevel_entrances()
+{
+	for ( sprite_init_param_group& sprite_ipg 
+		: the_sublevel_ptr->sprite_ipg_vec )
+	{
+		if ( sprite_ipg.type >= st_warp_block_0 
+			&& sprite_ipg.type <= st_warp_block_15 )
+		{
+			cout << ( sprite_ipg.type - st_warp_block_0 ) << " " 
+				<< warp_id_sle_id_map[sprite_ipg.type - st_warp_block_0]
+				<< endl;
+			sprite_ipg.extra_param_0 = warp_id_sle_id_map[sprite_ipg.type 
+				- st_warp_block_0];
+		}
+	}
+	
+	
 }
 
 
