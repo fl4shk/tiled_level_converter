@@ -560,6 +560,8 @@ void tiled_sublevel::build_object_ptr_vec()
 void tiled_sublevel::connect_warp_block_to_sublevel_entrance
 	( tiled_object* obj_ptr, sprite_init_param_group& to_push )
 {
+	static constexpr u32 num_pixels_per_block_row_or_col = 16;
+	
 	if ( warp_id_sle_id_map.count(to_push.type - st_warp_block_0) )
 	{
 		cout << "Error!  More than one st_warp_block with the same"
@@ -584,10 +586,18 @@ void tiled_sublevel::connect_warp_block_to_sublevel_entrance
 			value_sstm >> bdest_value;
 			
 			
+			//the_sublevel_ptr->sublevel_entrance_vec.push_back
+			//	({ sle_from_warp_block, vec2_f24p8
+			//	( obj_ptr->real_block_grid_pos.x << fixed24p8::shift,
+			//	obj_ptr->real_block_grid_pos.y << fixed24p8::shift ) });
 			the_sublevel_ptr->sublevel_entrance_vec.push_back
 				({ sle_from_warp_block, vec2_f24p8
-				( obj_ptr->real_block_grid_pos.x << fixed24p8::shift,
-				obj_ptr->real_block_grid_pos.y << fixed24p8::shift ) });
+				( ( num_pixels_per_block_row_or_col 
+				* obj_ptr->real_block_grid_pos.x ) 
+				<< fixed24p8::shift,
+				( num_pixels_per_block_row_or_col
+				* obj_ptr->real_block_grid_pos.y ) 
+				<< fixed24p8::shift ) });
 			
 			//warp_id_sle_id_map[bdest_value] 
 			//	= the_sublevel_ptr->sublevel_entrance_vec.size() - 1;
