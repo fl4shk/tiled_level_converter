@@ -30,13 +30,17 @@ enum sprite_type
 	
 	// Block-like Sprites
 	
-	// st_warp_block_# is used for warping around different parts of a
-	// SINGLE sublevel.  These get connected to sublevel_entrance's during
-	// the sublevel conversion process.
+	// st_warp_block_# is used for warping around different parts of either
+	// a SINGLE sublevel or MULTIPLE sublevels.  These get connected to
+	// sublevel_entrance's during the whole level conversion process.
 	st_warp_block_0, st_warp_block_1, st_warp_block_2, st_warp_block_3,
 	st_warp_block_4, st_warp_block_5, st_warp_block_6, st_warp_block_7,
 	st_warp_block_8, st_warp_block_9, st_warp_block_10, st_warp_block_11,
 	st_warp_block_12, st_warp_block_13, st_warp_block_14, st_warp_block_15,
+	st_warp_block_16, st_warp_block_17, st_warp_block_18, st_warp_block_19,
+	st_warp_block_20, st_warp_block_21, st_warp_block_22, st_warp_block_23,
+	st_warp_block_24, st_warp_block_25, st_warp_block_26, st_warp_block_27,
+	st_warp_block_28, st_warp_block_29, st_warp_block_30, st_warp_block_31,
 	
 	// st_count is the amount of sprite types.  It is automatically updated
 	// by the compiler.
@@ -44,6 +48,8 @@ enum sprite_type
 	
 } __attribute__((aligned(4)));
 
+static constexpr sprite_type lowest_warp_id_st = st_warp_block_0,
+	highest_warp_id_st = st_warp_block_31;
 
 
 

@@ -10,9 +10,17 @@ vector<string> st_name_vec = { "st_default", "st_player",
 	// st_warp_block_8 to st_warp_block_11
 	"st_warp_block", "st_warp_block", "st_warp_block", "st_warp_block",
 	// st_warp_block_12 to st_warp_block_15
+	"st_warp_block", "st_warp_block", "st_warp_block", "st_warp_block",
+	// st_warp_block_16 to st_warp_block_19
+	"st_warp_block", "st_warp_block", "st_warp_block", "st_warp_block",
+	// st_warp_block_20 to st_warp_block_23
+	"st_warp_block", "st_warp_block", "st_warp_block", "st_warp_block",
+	// st_warp_block_24 to st_warp_block_27
+	"st_warp_block", "st_warp_block", "st_warp_block", "st_warp_block",
+	// st_warp_block_28 to st_warp_block_31
 	"st_warp_block", "st_warp_block", "st_warp_block", "st_warp_block" };
 
-const string st_unknown_str = string("st_unknown");
 
+const string st_unknown_str = string("st_unknown");
 
 

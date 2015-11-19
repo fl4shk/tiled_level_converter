@@ -10,6 +10,8 @@ using namespace std;
 
 enum sublevel_entrance_type
 {
+	sle_blank,
+	
 	sle_start_of_level,
 	
 	sle_from_warp_block,

@@ -38,7 +38,6 @@ tiled_layer::tiled_layer( xml_node<>* node )
 		exit(1);
 	}
 	
-	
 	if ( !( internal_node->first_attribute()->name() == string("encoding") 
 		&& internal_node->first_attribute()->value() == string("csv") ) )
 	{

@@ -12,11 +12,11 @@
 class tiled_sublevel
 {
 public:		// variables
-	string output_dirname, output_basename;
+	string sublevel_file_name, output_dirname, output_basename;
 	
 	bool file_was_opened;
 	
-	string sublevel_str;
+	string sublevel_str_raw, sublevel_str;
 	
 	xml_document<char> doc;
 	
@@ -40,24 +40,71 @@ public:		// variables
 	// An std::map that maps object gid's to tilesets 
 	map< u32, tiled_tileset* > gid_tileset_ptr_map;
 	
-	// An std::map that maps st_warp_block ids to sublevel_entrance ids
+	// An std::map that maps st_warp_block ids to sublevel_entrance ids.
+	// This is deprecated.
 	map< u32, u32 > warp_id_sle_id_map;
 	
+	
+	// An std::map that maps this tiled_sublevel's st_warp_block id's to
+	// their bdest (block destination) values
+	map< u32, u32 > warp_id_bdest_map;
+	
+	// An std::map that maps this tiled_sublevel's st_warp_block id's to
+	// their sdest (sublevel destination) values, using a value of -1 if
+	// the st_warp_block is linked to another st_warp_block in its own
+	// sublevel.
+	map< u32, s64 > warp_id_sdest_map;
 	
 	// A 2D dynamic array of pointers to Tiled objects.  Only ONE Tiled
 	// object is permitted per initial block coordinate.
 	vector< vector<tiled_object*> > object_ptr_vec;
 	
 	
-	sublevel* the_sublevel_ptr;
+	// A vector of pointers to tiled_object's that correspond to instances
+	// of st_warp_block sprites.
+	vector< pair< tiled_object*, u32 > >
+		warp_block_object_ptr_and_sprite_ipg_index_vec;
+	
+	
+	sublevel the_sublevel;
+	
+	bool the_sublevel_was_generated;
 	
 	
 public:		// functions
-	tiled_sublevel( const string& sublevel_file_name, 
-		const string& s_output_prefix, sublevel& the_sublevel );
+	tiled_sublevel( const string& s_sublevel_file_name, 
+		const string& s_output_prefix );
 	
+	inline tiled_sublevel( const string& s_sublevel_file_name, 
+		const string& s_output_dirname, const string& s_output_basename )
+		: tiled_sublevel( s_sublevel_file_name, s_output_dirname + "/" 
+			+ s_output_basename )
+	{
+	}
+	
+	inline tiled_sublevel( const tiled_sublevel& to_copy )
+	{
+		*this = to_copy;
+		//cout << layer_vec.size() << endl;
+	}
+	
+	tiled_sublevel& operator = ( const tiled_sublevel& to_copy );
+	
+	inline const string& get_sublevel_file_name() const
+	{
+		return sublevel_file_name;
+	}
+	inline const string& get_sublevel_str_raw() const
+	{
+		return sublevel_str_raw;
+	}
+	
+	void common_initialization_stuff();
 	
 	void generate_the_sublevel();
+	void generate_sublevel_header_old();
+	void generate_sublevel_cpp_file_old();
+	
 	
 	void debug_print();
 	void debug_print_2();
@@ -66,16 +113,28 @@ public:		// functions
 	
 	void debug_print_gid_tileset_ptr_map();
 	
+	inline const string output_prefix() const
+	{
+		return output_dirname + "/" + output_basename;
+	}
 	
 protected:		// functions
+	
 	void build_gid_maps_and_correct_objects();
 	
 	void build_object_ptr_vec();
 	//void connect_warp_block_to_sublevel_entrance( tiled_object* obj_ptr,
 	//	sprite_init_param_group& to_push );
-	void generate_sublevel_entrance_using_warp_block( tiled_object* obj_ptr,
-		sprite_init_param_group& to_push );
-	void connect_warp_blocks_to_sublevel_entrances();
+	void generate_sublevel_entrance_using_warp_block_old
+		( tiled_object* obj_ptr, sprite_init_param_group& to_push );
+	void connect_warp_blocks_to_sublevel_entrances_old();
+	
+	//void generate_warp_id_bdest_map_and_warp_id_sdest_map();
+	void generate_warp_id_bdest_and_sdest_stuff();
+	void generate_warp_block_sublevel_entrances();
+	
+	void generate_start_of_level_sle_using_st_player
+		( tiled_object* obj_ptr );
 	
 	//void build_warp_block_extra_params( tiled_object* obj_ptr, 
 	//	sprite_init_param_group& to_push );
@@ -86,15 +145,7 @@ protected:		// functions
 	void write_uncompressed_block_data_to_file();
 	void read_compressed_block_data_from_file();
 	
-	void generate_sublevel_header();
-	void generate_sublevel_cpp_file();
 	
-	
-	
-	inline const string output_prefix() const
-	{
-		return output_dirname + "/" + output_basename;
-	}
 	
 	
 	

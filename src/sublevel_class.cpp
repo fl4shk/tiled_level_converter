@@ -3,10 +3,10 @@
 const vec2_u32 sublevel::max_size_2d = { 512, 32 };
 const u32 sublevel::max_num_blocks = max_size_2d.x * max_size_2d.y;
 
-sublevel::sublevel()
-{
-	init(max_size_2d);
-}
+//sublevel::sublevel()
+//{
+//	init(max_size_2d);
+//}
 
 
 sublevel::sublevel( const vec2_u32& s_size_2d )

@@ -12,7 +12,8 @@
 using namespace std;
 
 
-//// Here is a reference class for sublevels as they appear in my GBA code.
+//// Here is a reference class for sublevels as they appear in the GBA-side
+////code.
 //template< u32 compressed_block_data_size, u32 xsize, u32 ysize, 
 //	u32 sprite_ipg_arr_size, u32 sublevel_entrance_arr_size >
 //class sublevel
@@ -44,8 +45,8 @@ public:		// variables
 	// allocated 2D array of UNCOMPRESSED block data.  However, this vector
 	// of vectors is initialized to the SAME SIZE (both for the outer
 	// vector and the inner vectors) every time the program is run!  This
-	// is so that, IN MY GBA CODE, the COMPRESSED array of block data can
-	// be DECOMPRESSED DIRECTLY to the statically allocated 2D array of
+	// is so that, IN THE GBA-SIDE CODE, the COMPRESSED array of block data
+	// can be DECOMPRESSED DIRECTLY to the statically allocated 2D array of
 	// block data.
 	vector< vector<block> > uncompressed_block_data_vec;
 	
@@ -60,7 +61,9 @@ public:		// variables
 	vector<sublevel_entrance> sublevel_entrance_vec;
 	
 public:		// functions
-	sublevel();
+	inline sublevel() : sublevel(max_size_2d)
+	{
+	}
 	
 	sublevel( const vec2_u32& s_size_2d );
 	
