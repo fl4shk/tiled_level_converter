@@ -40,18 +40,18 @@ public:		// variables
 	// An std::map that maps object gid's to tilesets 
 	map< u32, tiled_tileset* > gid_tileset_ptr_map;
 	
-	// An std::map that maps st_warp_block ids to sublevel_entrance ids.
+	// An std::map that maps st_door ids to sublevel_entrance ids.
 	// This is deprecated.
 	map< u32, u32 > warp_id_sle_id_map;
 	
 	
-	// An std::map that maps this tiled_sublevel's st_warp_block id's to
+	// An std::map that maps this tiled_sublevel's st_door id's to
 	// their bdest (block destination) values
 	map< u32, u32 > warp_id_bdest_map;
 	
-	// An std::map that maps this tiled_sublevel's st_warp_block id's to
+	// An std::map that maps this tiled_sublevel's st_door id's to
 	// their sdest (sublevel destination) values, using a value of -1 if
-	// the st_warp_block is linked to another st_warp_block in its own
+	// the st_door is linked to another st_door in its own
 	// sublevel.
 	map< u32, s64 > warp_id_sdest_map;
 	
@@ -61,9 +61,9 @@ public:		// variables
 	
 	
 	// A vector of pointers to tiled_object's that correspond to instances
-	// of st_warp_block sprites.
+	// of st_door sprites.
 	vector< pair< tiled_object*, u32 > >
-		warp_block_object_ptr_and_sprite_ipg_index_vec;
+		door_object_ptr_and_sprite_ipg_index_vec;
 	
 	
 	sublevel the_sublevel;
@@ -123,20 +123,20 @@ protected:		// functions
 	void build_gid_maps_and_correct_objects();
 	
 	void build_object_ptr_vec();
-	//void connect_warp_block_to_sublevel_entrance( tiled_object* obj_ptr,
+	//void connect_door_to_sublevel_entrance( tiled_object* obj_ptr,
 	//	sprite_init_param_group& to_push );
-	void generate_sublevel_entrance_using_warp_block_old
+	void generate_sublevel_entrance_using_door_old
 		( tiled_object* obj_ptr, sprite_init_param_group& to_push );
-	void connect_warp_blocks_to_sublevel_entrances_old();
+	void connect_doors_to_sublevel_entrances_old();
 	
 	//void generate_warp_id_bdest_map_and_warp_id_sdest_map();
 	void generate_warp_id_bdest_and_sdest_stuff();
-	void generate_warp_block_sublevel_entrances();
+	void generate_door_sublevel_entrances();
 	
 	void generate_start_of_level_sle_using_st_player
 		( tiled_object* obj_ptr );
 	
-	//void build_warp_block_extra_params( tiled_object* obj_ptr, 
+	//void build_door_extra_params( tiled_object* obj_ptr, 
 	//	sprite_init_param_group& to_push );
 	
 	//void generate_the_sprite_ipg_vec_part_1();

@@ -204,14 +204,15 @@ void level_converter::generate_level_cpp_file()
 		{
 			cpp_file << "\t\t{ ";
 			
-			if ( sprite_ipg.type < st_name_vec.size() )
+			if ( sprite_ipg.type < sprite_type_helper::st_name_vec.size() )
 			{
-				cpp_file << get_st_name(sprite_ipg.type);
+				cpp_file << sprite_type_helper::get_st_name
+					(sprite_ipg.type);
 			}
 			else
 			{
 				// Print out a number if the_sprite_type doesn't have a
-				// corresponding string in st_name_vec.
+				// corresponding string in sprite_type_helper::st_name_vec.
 				cpp_file << sprite_ipg.type;
 			}
 			
@@ -241,8 +242,9 @@ void level_converter::generate_level_cpp_file()
 			//	<< sprite_ipg.extra_param_2 << ", " 
 			//	<< sprite_ipg.extra_param_3;
 			
-			if ( sprite_ipg.type >= lowest_warp_id_st 
-				&& sprite_ipg.type <= highest_warp_id_st )
+			if ( sprite_ipg.type >= sprite_type_helper::lowest_warp_id_st 
+				&& sprite_ipg.type 
+				<= sprite_type_helper::highest_warp_id_st )
 			{
 				cpp_file << ", " << sprite_ipg.extra_param_0 << ", ";
 				

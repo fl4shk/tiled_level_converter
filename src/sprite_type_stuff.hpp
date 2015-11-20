@@ -30,17 +30,17 @@ enum sprite_type
 	
 	// Block-like Sprites
 	
-	// st_warp_block_# is used for warping around different parts of either
+	// st_door_# is used for warping around different parts of either
 	// a SINGLE sublevel or MULTIPLE sublevels.  These get connected to
 	// sublevel_entrance's during the whole level conversion process.
-	st_warp_block_0, st_warp_block_1, st_warp_block_2, st_warp_block_3,
-	st_warp_block_4, st_warp_block_5, st_warp_block_6, st_warp_block_7,
-	st_warp_block_8, st_warp_block_9, st_warp_block_10, st_warp_block_11,
-	st_warp_block_12, st_warp_block_13, st_warp_block_14, st_warp_block_15,
-	st_warp_block_16, st_warp_block_17, st_warp_block_18, st_warp_block_19,
-	st_warp_block_20, st_warp_block_21, st_warp_block_22, st_warp_block_23,
-	st_warp_block_24, st_warp_block_25, st_warp_block_26, st_warp_block_27,
-	st_warp_block_28, st_warp_block_29, st_warp_block_30, st_warp_block_31,
+	st_door_0, st_door_1, st_door_2, st_door_3,
+	st_door_4, st_door_5, st_door_6, st_door_7,
+	st_door_8, st_door_9, st_door_10, st_door_11,
+	st_door_12, st_door_13, st_door_14, st_door_15,
+	st_door_16, st_door_17, st_door_18, st_door_19,
+	st_door_20, st_door_21, st_door_22, st_door_23,
+	st_door_24, st_door_25, st_door_26, st_door_27,
+	st_door_28, st_door_29, st_door_30, st_door_31,
 	
 	// st_count is the amount of sprite types.  It is automatically updated
 	// by the compiler.
@@ -48,30 +48,40 @@ enum sprite_type
 	
 } __attribute__((aligned(4)));
 
-static constexpr sprite_type lowest_warp_id_st = st_warp_block_0,
-	highest_warp_id_st = st_warp_block_31;
 
-
-
-extern vector<string> st_name_vec;
-extern const string st_unknown_str;
-
-inline const string& get_st_name( sprite_type the_sprite_type )
+class sprite_type_helper
 {
-	if ( the_sprite_type < 0 || the_sprite_type >= st_count )
+public:		// variables
+	static constexpr sprite_type lowest_warp_id_st = st_door_0,
+		highest_warp_id_st = st_door_31;
+	
+	static vector<string> st_name_vec;
+	static const string st_unknown_str;
+	
+	//static vector<u32> st_height_vec;
+	
+public:		// functions
+	
+	static inline const string& get_st_name( sprite_type the_sprite_type )
 	{
-		return st_name_vec.at(st_default);
+		if ( the_sprite_type < 0 || the_sprite_type >= st_count )
+		{
+			return st_name_vec.at(st_default);
+		}
+		return st_name_vec.at(the_sprite_type);
 	}
-	return st_name_vec.at(the_sprite_type);
-}
+	
+	static inline const string& get_st_name_debug
+		( sprite_type the_sprite_type )
+	{
+		if ( the_sprite_type < 0 || the_sprite_type >= st_count )
+		{
+			return st_unknown_str;
+		}
+		return st_name_vec.at(the_sprite_type);
+	}
+	
+};
 
-inline const string& get_st_name_debug( sprite_type the_sprite_type )
-{
-	if ( the_sprite_type < 0 || the_sprite_type >= st_count )
-	{
-		return st_unknown_str;
-	}
-	return st_name_vec.at(the_sprite_type);
-}
 
 #endif		// sprite_type_stuff_hpp

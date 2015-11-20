@@ -45,8 +45,8 @@ public:		// functions
 	
 	inline void debug_print()
 	{
-		cout << get_st_name_debug(the_sprite_type) << ";  "
-			<< id << " " << gid_raw << ";  " 
+		cout << sprite_type_helper::get_st_name_debug(the_sprite_type) 
+			<< ";  " << id << " " << gid_raw << ";  " 
 			<< gid << " " << hflip << " " << vflip << ";  "
 			<< block_grid_pos.x << " " << block_grid_pos.y << " "
 			<< size_2d.x << " " << size_2d.y << ";  "
@@ -63,9 +63,9 @@ public:		// functions
 	}
 	inline void debug_print_short()
 	{
-		cout << get_st_name_debug(the_sprite_type) << ";  "
-			<< real_block_grid_pos.x << " " << real_block_grid_pos.y 
-			<< endl;
+		cout << sprite_type_helper::get_st_name_debug(the_sprite_type) 
+			<< ";  " << real_block_grid_pos.x << " " 
+			<< real_block_grid_pos.y << endl;
 	}
 	
 	inline void reject()

@@ -46,13 +46,14 @@ tiled_sublevel::tiled_sublevel( const string& s_sublevel_file_name,
 	the_sublevel_was_generated = false;
 }
 
-tiled_sublevel& tiled_sublevel::operator = ( const tiled_sublevel& to_copy )
+tiled_sublevel& tiled_sublevel::operator = 
+	( const tiled_sublevel& to_copy )
 {
 	sublevel_file_name = to_copy.sublevel_file_name;
 	output_dirname = to_copy.output_dirname;
 	output_basename = to_copy.output_basename;
 	file_was_opened = to_copy.file_was_opened;
-	
+
 	
 	sublevel_str_raw.clear();
 	sublevel_str.clear();
@@ -101,7 +102,8 @@ void tiled_sublevel::common_initialization_stuff()
 	
 	build_object_ptr_vec();
 	
-	for ( u32 i=0; i<highest_warp_id_st - lowest_warp_id_st + 1; ++i )
+	for ( u32 i=0; i<sprite_type_helper::highest_warp_id_st 
+		- sprite_type_helper::lowest_warp_id_st + 1; ++i )
 	{
 		the_sublevel.sublevel_entrance_vec.push_back
 			(sublevel_entrance());
@@ -227,21 +229,24 @@ void tiled_sublevel::generate_the_sublevel()
 				
 				the_sublevel.sprite_ipg_vec.push_back(to_push);
 				
-				// If dealing with an st_warp_block, then add its
+				// If dealing with an st_door, then add its
 				// tiled_object pointer and an index to the array of 
 				// sprite_init_param_groups to 
-				// warp_block_object_ptr_and_sprite_ipg_index_vec.
-				if ( obj_ptr->the_sprite_type >= lowest_warp_id_st 
-					&& obj_ptr->the_sprite_type <= highest_warp_id_st )
+				// door_object_ptr_and_sprite_ipg_index_vec.
+				if ( obj_ptr->the_sprite_type 
+					>= sprite_type_helper::lowest_warp_id_st 
+					&& obj_ptr->the_sprite_type 
+					<= sprite_type_helper::highest_warp_id_st )
 				{
-					//generate_sublevel_entrance_using_warp_block_old
+					//generate_sublevel_entrance_using_door_old
 					//	( obj_ptr, to_push );
-					//generate_sublevel_entrance_using_warp_block( obj_ptr, 
+					//generate_sublevel_entrance_using_door( obj_ptr, 
 					//	to_push );
-					//cout << to_push.type - lowest_warp_id_st << endl;
-					//warp_block_object_ptr_vec.push_back(obj_ptr);
+					//cout << to_push.type 
+					//	- sprite_type_helper::lowest_warp_id_st << endl;
+					//door_object_ptr_vec.push_back(obj_ptr);
 					
-					warp_block_object_ptr_and_sprite_ipg_index_vec
+					door_object_ptr_and_sprite_ipg_index_vec
 						.push_back( pair< tiled_object*, u32 >( obj_ptr, 
 						the_sublevel.sprite_ipg_vec.size() - 1  ) );
 				}
@@ -253,18 +258,18 @@ void tiled_sublevel::generate_the_sublevel()
 	
 	//cout << "\n\n";
 	//
-	//for ( u32 i=0; i<warp_block_object_ptr_and_sprite_ipg_ptr_vec.size();
+	//for ( u32 i=0; i<door_object_ptr_and_sprite_ipg_ptr_vec.size();
 	//	++i )
 	//{
 	//	cout <<
-	//	warp_block_object_ptr_and_sprite_ipg_ptr_vec[i].second->type <<
+	//	door_object_ptr_and_sprite_ipg_ptr_vec[i].second->type <<
 	//	endl;
 	//}
 	
-	////connect_warp_blocks_to_sublevel_entrances_old();
+	////connect_doors_to_sublevel_entrances_old();
 	//generate_warp_id_bdest_map_and_warp_id_sdest_map();
 	generate_warp_id_bdest_and_sdest_stuff();
-	generate_warp_block_sublevel_entrances();
+	generate_door_sublevel_entrances();
 	
 	
 	write_uncompressed_block_data_to_file();
@@ -474,18 +479,18 @@ void tiled_sublevel::generate_sublevel_cpp_file_old()
 	{
 		cpp_file << "\t\t{ ";
 		
-		//if ( iter->type < st_name_vec.size() )
+		//if ( iter->type < sprite_type_helper::st_name_vec.size() )
 		//{
-		//	cpp_file << get_st_name(iter->type);
+		//	cpp_file << sprite_type_helper::get_st_name(iter->type);
 		//}
-		if ( sprite_ipg.type < st_name_vec.size() )
+		if ( sprite_ipg.type < sprite_type_helper::st_name_vec.size() )
 		{
-			cpp_file << get_st_name(sprite_ipg.type);
+			cpp_file << sprite_type_helper::get_st_name(sprite_ipg.type);
 		}
 		else
 		{
 			// Print out a number if the_sprite_type doesn't have a
-			// corresponding string in st_name_vec.
+			// corresponding string in sprite_type_helper::st_name_vec.
 			//cpp_file << iter->type;
 			cpp_file << sprite_ipg.type;
 		}
@@ -689,87 +694,89 @@ void tiled_sublevel::build_object_ptr_vec()
 	
 }
 
-void tiled_sublevel::generate_sublevel_entrance_using_warp_block_old
-	( tiled_object* obj_ptr, sprite_init_param_group& to_push )
-{
-	static constexpr u32 num_pixels_per_block_row_or_col = 16;
-	
-	if ( warp_id_sle_id_map.count(to_push.type - lowest_warp_id_st) )
-	{
-		cout << "Error!  More than one st_warp_block with the same"
-			<< " number in a sublevel is not permitted!\n";
-		obj_ptr->reject_and_exit();
-	}
-	
-	bool found_bdest = false;
-	//for ( auto prop_iter=obj_ptr->property_vec.begin();
-	//	prop_iter!=obj_ptr->property_vec.end();
-	//	++prop_iter )
-	for ( tiled_object_property& the_property : obj_ptr->property_vec )
-	{
-		// Destination warp block
-		//if ( prop_iter->name == string("bdest") )
-		if ( the_property.name == string("bdest") )
-		{
-			found_bdest = true;
-			
-			stringstream value_sstm;
-			//value_sstm << prop_iter->value;
-			value_sstm << the_property.value;
-			
-			u32 bdest_value;
-			value_sstm >> bdest_value;
-			
-			the_sublevel.sublevel_entrance_vec[to_push.type 
-				- lowest_warp_id_st] = { sle_from_warp_block, vec2_f24p8
-				( ( num_pixels_per_block_row_or_col 
-				* obj_ptr->real_block_grid_pos.x ) 
-				<< fixed24p8::shift,
-				( num_pixels_per_block_row_or_col
-				* obj_ptr->real_block_grid_pos.y ) 
-				<< fixed24p8::shift ) };
-			
-			//warp_id_sle_id_map[bdest_value] 
-			//	= the_sublevel.sublevel_entrance_vec.size() - 1;
-			//warp_id_sle_id_map[to_push.type - lowest_warp_id_st]
-			//	= the_sublevel.sublevel_entrance_vec.size() - 1;
-			warp_id_sle_id_map[to_push.type - lowest_warp_id_st]
-				= bdest_value;
-			
-			//to_push.extra_param_0 = bdest_value;
-			//to_push.extra_param_0 
-			//	= the_sublevel.sublevel_entrance_vec.size() - 1;
-			
-			// Only process a single property
-			break;
-		}
-	}
-	
-	if (!found_bdest)
-	{
-		cout << "Error!  st_warp_block's are REQUIRED to have a "
-			<< "destination st_warp_block, specified by a property called "
-			<< "\"bdest\" in Tiled.\n";
-		obj_ptr->reject_and_exit();
-	}
-}
+//void tiled_sublevel::generate_sublevel_entrance_using_door_old
+//	( tiled_object* obj_ptr, sprite_init_param_group& to_push )
+//{
+//	static constexpr u32 num_pixels_per_block_row_or_col = 16;
+//	
+//	if ( warp_id_sle_id_map.count(to_push.type 
+//		- sprite_type_helper::lowest_warp_id_st) )
+//	{
+//		cout << "Error!  More than one st_door with the same"
+//			<< " number in a sublevel is not permitted!\n";
+//		obj_ptr->reject_and_exit();
+//	}
+//	
+//	bool found_bdest = false;
+//	//for ( auto prop_iter=obj_ptr->property_vec.begin();
+//	//	prop_iter!=obj_ptr->property_vec.end();
+//	//	++prop_iter )
+//	for ( tiled_object_property& the_property : obj_ptr->property_vec )
+//	{
+//		// Destination warp block
+//		//if ( prop_iter->name == string("bdest") )
+//		if ( the_property.name == string("bdest") )
+//		{
+//			found_bdest = true;
+//			
+//			stringstream value_sstm;
+//			//value_sstm << prop_iter->value;
+//			value_sstm << the_property.value;
+//			
+//			u32 bdest_value;
+//			value_sstm >> bdest_value;
+//			
+//			the_sublevel.sublevel_entrance_vec[to_push.type 
+//				- sprite_type_helper::lowest_warp_id_st] 
+//				= { sle_from_door, vec2_f24p8
+//				( ( num_pixels_per_block_row_or_col 
+//				* obj_ptr->real_block_grid_pos.x ) 
+//				<< fixed24p8::shift,
+//				( num_pixels_per_block_row_or_col
+//				* obj_ptr->real_block_grid_pos.y ) 
+//				<< fixed24p8::shift ) };
+//			
+//			//warp_id_sle_id_map[bdest_value] 
+//			//	= the_sublevel.sublevel_entrance_vec.size() - 1;
+//			//warp_id_sle_id_map[to_push.type - lowest_warp_id_st]
+//			//	= the_sublevel.sublevel_entrance_vec.size() - 1;
+//			warp_id_sle_id_map[to_push.type - lowest_warp_id_st]
+//				= bdest_value;
+//			
+//			//to_push.extra_param_0 = bdest_value;
+//			//to_push.extra_param_0 
+//			//	= the_sublevel.sublevel_entrance_vec.size() - 1;
+//			
+//			// Only process a single property
+//			break;
+//		}
+//	}
+//	
+//	if (!found_bdest)
+//	{
+//		cout << "Error!  st_door's are REQUIRED to have a "
+//			<< "destination st_door, specified by a property called "
+//			<< "\"bdest\" in Tiled.\n";
+//		obj_ptr->reject_and_exit();
+//	}
+//}
 
-void tiled_sublevel::connect_warp_blocks_to_sublevel_entrances_old()
-{
-	for ( sprite_init_param_group& sprite_ipg 
-		: the_sublevel.sprite_ipg_vec )
-	{
-		if ( sprite_ipg.type >= lowest_warp_id_st 
-			&& sprite_ipg.type <= highest_warp_id_st )
-		{
-			cout << ( sprite_ipg.type - lowest_warp_id_st ) << " " 
-				<< warp_id_sle_id_map[sprite_ipg.type - lowest_warp_id_st]
-				<< endl;
-			sprite_ipg.extra_param_0 = warp_id_sle_id_map[sprite_ipg.type 
-				- lowest_warp_id_st];
-		}
-	}
-}
+//void tiled_sublevel::connect_doors_to_sublevel_entrances_old()
+//{
+//	for ( sprite_init_param_group& sprite_ipg 
+//		: the_sublevel.sprite_ipg_vec )
+//	{
+//		if ( sprite_ipg.type >= lowest_warp_id_st 
+//			&& sprite_ipg.type <= highest_warp_id_st )
+//		{
+//			cout << ( sprite_ipg.type - lowest_warp_id_st ) << " " 
+//				<< warp_id_sle_id_map[sprite_ipg.type - lowest_warp_id_st]
+//				<< endl;
+//			sprite_ipg.extra_param_0 = warp_id_sle_id_map[sprite_ipg.type 
+//				- lowest_warp_id_st];
+//		}
+//	}
+//}
 
 //void tiled_sublevel::generate_warp_id_bdest_map_and_warp_id_sdest_map()
 void tiled_sublevel::generate_warp_id_bdest_and_sdest_stuff()
@@ -777,18 +784,18 @@ void tiled_sublevel::generate_warp_id_bdest_and_sdest_stuff()
 	// Continue here.
 	
 	
-	//for ( tiled_object* obj_ptr : warp_block_object_ptr_vec )
+	//for ( tiled_object* obj_ptr : door_object_ptr_vec )
 	for ( pair< tiled_object*, u32 >& the_pair
-		: warp_block_object_ptr_and_sprite_ipg_index_vec )
+		: door_object_ptr_and_sprite_ipg_index_vec )
 	{
 		tiled_object* obj_ptr = the_pair.first;
 		sprite_init_param_group& sprite_ipg 
 			= the_sublevel.sprite_ipg_vec[the_pair.second];
 		
 		if ( warp_id_bdest_map.count(obj_ptr->the_sprite_type 
-			- lowest_warp_id_st) )
+			- sprite_type_helper::lowest_warp_id_st) )
 		{
-			cout << "Error!  More than one st_warp_block with the same"
+			cout << "Error!  More than one st_door with the same"
 				<< " number in a sublevel is not permitted!\n";
 			obj_ptr->reject_and_exit();
 		}
@@ -814,7 +821,8 @@ void tiled_sublevel::generate_warp_id_bdest_and_sdest_stuff()
 				value_sstm >> bdest_value;
 				
 				warp_id_bdest_map[obj_ptr->the_sprite_type 
-					- lowest_warp_id_st] = bdest_value;
+					- sprite_type_helper::lowest_warp_id_st] 
+					= bdest_value;
 				
 				sprite_ipg.extra_param_0 = bdest_value;
 				
@@ -838,7 +846,8 @@ void tiled_sublevel::generate_warp_id_bdest_and_sdest_stuff()
 				value_sstm >> sdest_value;
 				
 				warp_id_sdest_map[obj_ptr->the_sprite_type
-					- lowest_warp_id_st] = sdest_value;
+					- sprite_type_helper::lowest_warp_id_st] 
+					= sdest_value;
 				
 				sprite_ipg.extra_param_1 = sdest_value;
 				
@@ -853,8 +862,8 @@ void tiled_sublevel::generate_warp_id_bdest_and_sdest_stuff()
 		
 		if (!found_bdest)
 		{
-			cout << "Error!  st_warp_block's are REQUIRED to have a "
-				<< "destination st_warp_block, specified by a property "
+			cout << "Error!  st_door's are REQUIRED to have a "
+				<< "destination st_door, specified by a property "
 				<< " called \"bdest\" in Tiled.\n";
 			obj_ptr->reject_and_exit();
 		}
@@ -862,14 +871,14 @@ void tiled_sublevel::generate_warp_id_bdest_and_sdest_stuff()
 		// If there isn't an sdest property, then use a value of -1, which
 		// will be used by the level_converter_class to mean that the same
 		// sublevel should be considered the destination sublevel for this
-		// st_warp_block. 
+		// st_door. 
 		if (!found_sdest)
 		{
-			warp_id_sdest_map[obj_ptr->the_sprite_type - lowest_warp_id_st] 
-				= -1;
+			warp_id_sdest_map[obj_ptr->the_sprite_type 
+				- sprite_type_helper::lowest_warp_id_st] = -1;
 			sprite_ipg.extra_param_1 = -1;
 			
-			//cout << "Found an st_warp_block without an sdest property!\n";
+			//cout << "Found an st_door without an sdest property!\n";
 			//cout << "Here's a debug_print().\n";
 			//obj_ptr->debug_print();
 		}
@@ -878,12 +887,12 @@ void tiled_sublevel::generate_warp_id_bdest_and_sdest_stuff()
 	
 }
 
-void tiled_sublevel::generate_warp_block_sublevel_entrances()
+void tiled_sublevel::generate_door_sublevel_entrances()
 {
 	static constexpr u32 num_pixels_per_block_row_or_col = 16;
 	
 	//the_sublevel.sublevel_entrance_vec[to_push.type 
-	//	- lowest_warp_id_st] = { sle_from_warp_block, vec2_f24p8
+	//	- lowest_warp_id_st] = { sle_from_door, vec2_f24p8
 	//	( ( num_pixels_per_block_row_or_col 
 	//	* obj_ptr->real_block_grid_pos.x ) 
 	//	<< fixed24p8::shift,
@@ -891,16 +900,29 @@ void tiled_sublevel::generate_warp_block_sublevel_entrances()
 	//	* obj_ptr->real_block_grid_pos.y ) 
 	//	<< fixed24p8::shift ) };
 	
-	//for ( tiled_object* obj_ptr : warp_block_object_ptr_vec )
+	//for ( tiled_object* obj_ptr : door_object_ptr_vec )
 	for ( pair< tiled_object*, u32 >& the_pair
-		: warp_block_object_ptr_and_sprite_ipg_index_vec )
+		: door_object_ptr_and_sprite_ipg_index_vec )
 	{
 		tiled_object* obj_ptr = the_pair.first;
+		//the_sublevel.sublevel_entrance_vec[obj_ptr->the_sprite_type 
+		//	- sprite_type_helper::lowest_warp_id_st] 
+		//	= { sle_from_door, vec2_f24p8
+		//	( ( num_pixels_per_block_row_or_col 
+		//	* obj_ptr->real_block_grid_pos.x ) << fixed24p8::shift,
+		//	( num_pixels_per_block_row_or_col * 2
+		//	* obj_ptr->real_block_grid_pos.y ) << fixed24p8::shift ) };
+		
 		the_sublevel.sublevel_entrance_vec[obj_ptr->the_sprite_type 
-			- lowest_warp_id_st] = { sle_from_warp_block, vec2_f24p8
+			- sprite_type_helper::lowest_warp_id_st] 
+			= { sle_from_door, vec2_f24p8
 			( ( num_pixels_per_block_row_or_col 
 			* obj_ptr->real_block_grid_pos.x ) << fixed24p8::shift,
-			( num_pixels_per_block_row_or_col
+			
+			//( num_pixels_per_block_row_or_col 
+			//* obj_ptr->real_block_grid_pos.y - (obj_ptr->real_size_2d).y ) 
+			//<< fixed24p8::shift ) };
+			( num_pixels_per_block_row_or_col 
 			* obj_ptr->real_block_grid_pos.y ) << fixed24p8::shift ) };
 	}
 	
@@ -911,12 +933,24 @@ void tiled_sublevel::generate_start_of_level_sle_using_st_player
 {
 	static constexpr u32 num_pixels_per_block_row_or_col = 16;
 	
+	//the_sublevel.sublevel_entrance_vec.push_back( (sublevel_entrance)
+	//	{ sle_start_of_level, vec2_f24p8 
+	//	( ( num_pixels_per_block_row_or_col 
+	//	* obj_ptr->real_block_grid_pos.x ) << fixed24p8::shift,
+	//	( num_pixels_per_block_row_or_col
+	//	* obj_ptr->real_block_grid_pos.y ) << fixed24p8::shift )} );
+	
 	the_sublevel.sublevel_entrance_vec.push_back( (sublevel_entrance)
 		{ sle_start_of_level, vec2_f24p8 
-		( ( num_pixels_per_block_row_or_col 
+		( ( num_pixels_per_block_row_or_col
 		* obj_ptr->real_block_grid_pos.x ) << fixed24p8::shift,
-		( num_pixels_per_block_row_or_col
-		* obj_ptr->real_block_grid_pos.y ) << fixed24p8::shift )} );
+		
+		//( num_pixels_per_block_row_or_col 
+		//* obj_ptr->real_block_grid_pos.y - obj_ptr->real_size_2d.y ) 
+		//<< fixed24p8::shift ) } );
+		( num_pixels_per_block_row_or_col 
+		* obj_ptr->real_block_grid_pos.y ) 
+		<< fixed24p8::shift ) } );
 	
 }
 
