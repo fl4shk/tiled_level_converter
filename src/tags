@@ -336,6 +336,7 @@ st_muffin	sprite_type_stuff.hpp	/^	st_muffin,$/;"	kind:e	enum:sprite_type
 st_name_vec	sprite_type_stuff.cpp	/^vector<string> sprite_type_helper::st_name_vec $/;"	kind:m	class:sprite_type_helper	file:
 st_name_vec	sprite_type_stuff.hpp	/^	static vector<string> st_name_vec;$/;"	kind:m	class:sprite_type_helper	access:public
 st_player	sprite_type_stuff.hpp	/^	st_player,$/;"	kind:e	enum:sprite_type
+st_snow_golem	sprite_type_stuff.hpp	/^	st_snow_golem,$/;"	kind:e	enum:sprite_type
 st_unknown_str	sprite_type_stuff.cpp	/^const string sprite_type_helper::st_unknown_str = string("st_unknown");$/;"	kind:m	class:sprite_type_helper	file:
 st_unknown_str	sprite_type_stuff.hpp	/^	static const string st_unknown_str;$/;"	kind:m	class:sprite_type_helper	access:public
 st_waffle	sprite_type_stuff.hpp	/^	st_waffle,$/;"	kind:e	enum:sprite_type

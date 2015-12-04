@@ -4,6 +4,7 @@ vector<string> sprite_type_helper::st_name_vec
 = { 
 	"st_default", "st_player", "st_waffle", "st_muffin", 
 	"st_fire_muffin", "st_ice_muffin", "st_chocolate_muffin", 
+	
 	// st_door_0 to st_door_3
 	"st_door", "st_door", "st_door", "st_door",
 	// st_door_4 to st_door_7
@@ -19,7 +20,9 @@ vector<string> sprite_type_helper::st_name_vec
 	// st_door_24 to st_door_27
 	"st_door", "st_door", "st_door", "st_door",
 	// st_door_28 to st_door_31
-	"st_door", "st_door", "st_door", "st_door"
+	"st_door", "st_door", "st_door", "st_door",
+	
+	"st_snow_golem"
 };
 
 

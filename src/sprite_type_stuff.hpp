@@ -42,6 +42,9 @@ enum sprite_type
 	st_door_24, st_door_25, st_door_26, st_door_27,
 	st_door_28, st_door_29, st_door_30, st_door_31,
 	
+	// Enemy sprites
+	st_snow_golem,
+	
 	// st_count is the amount of sprite types.  It is automatically updated
 	// by the compiler.
 	st_count,
